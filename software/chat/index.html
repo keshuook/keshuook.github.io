@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Chat</title>
+  <script type='text/javascript' src='https://cdn.scaledrone.com/scaledrone.min.js'></script>
+  <meta name="viewport" content="width=device-width">
+  <style>
+  @media only screen and (max-width:800px) {
+body, #header, #middle, a, #navigate ,#info #footer {
+width: 80%;
+}
+}
+@media only screen and (max-width:500px) {
+body, #header, #middle, a, #navigate, #info #footer {
+width: 100%;
+}
+}
+    body {
+	  background-color: #efefef;
+	  text-align: center;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      max-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    .members-count,
+    .members-list,
+    .messages {
+      border: 1px solid #e6e6e6;
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    .messages {
+      flex-shrink: 100;
+      overflow: auto;
+	  height: 100px;
+    }
+    .message {
+      padding: 2px 0;
+    }
+    .message .member {
+      display: inline-block;
+    }
+    .member {
+      padding-right: 10px;
+      position: relative;
+    }
+    .message-form__input {
+      flex-grow: 1;
+      border: 1px solid #dfdfdf;
+      padding: 10px 15px;
+      font-size: 16px;
+    }
+    .message-form__button {
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+  <p align="center"><h1 align="center">Keshuook chat</h1>
+  <hr>
+  Bad language is not to be used</p>
+  <div class="members-count">loading</div>.
+  <div class="members-list">loading</div>
+  <p class="messages"></p>
+  <form class="message-form" onsubmit="return false;">
+    <input class="message-form__input" placeholder="Type a message.." type="text"/>
+    <input class="message-form__button" value="Send" type="submit"/>
+  </form>
+  <script>// PS! Replace this with your own channel ID
+// If you use this channel ID your app will stop working in the future
+const CLIENT_ID = 'Gk0lCGPLNsteeDlb';
+var sub = document.getElementById('sub');
+const drone = new ScaleDrone(CLIENT_ID, {
+  data: { // Will be sent out as clientData via events
+    name: getRandomName(),
+    color: getRandomColor(),
+  },
+});
+
+let members = [];
+
+drone.on('open', error => {
+  if (error) {
+    return console.error(error);
+  }
+  console.log('Successfully connected to Scaledrone');
+
+  const room = drone.subscribe('observable-room');
+  room.on('open', error => {
+    if (error) {
+      return console.error(error);
+    }
+    console.log('Successfully joined room');
+  });
+
+  room.on('members', m => {
+    members = m;
+    updateMembersDOM();
+  });
+
+  room.on('member_join', member => {
+    members.push(member);
+    updateMembersDOM();
+  });
+
+  room.on('member_leave', ({id}) => {
+    const index = members.findIndex(member => member.id === id);
+    members.splice(index, 1);
+    updateMembersDOM();
+  });
+
+  room.on('data', (text, member) => {
+    if (member) {
+      addMessageToListDOM(text, member);
+    } else {
+      // Message is from server
+    }
+  });
+});
+
+drone.on('close', event => {
+  console.log('Connection was closed', event);
+});
+
+drone.on('error', error => {
+  console.error(error);
+});
+
+function getRandomName() {
+  const adjs = ["keshuook_user "];
+  var min=1; 
+  var max=2000;  
+  var random = Math.floor(Math.random() * (+max - +min)) + min;
+    return (
+    adjs[Math.floor(Math.random() * adjs.length)] +
+    " no." + random
+    // remove variable random if it doesnt work, like concatenation
+     
+  );
+}
+
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 0xaaaaaa).toString(16);
+}
+
+//------------- DOM STUFF
+
+const DOM = {
+  membersCount: document.querySelector('.members-count'),
+  membersList: document.querySelector('.members-list'),
+  messages: document.querySelector('.messages'),
+  input: document.querySelector('.message-form__input'),
+  form: document.querySelector('.message-form'),
+};
+
+DOM.form.addEventListener('submit', sendMessage);
+
+function sendMessage() {
+  const value = DOM.input.value;
+  if (value === '') {
+    return;
+  }
+  DOM.input.value = '';
+  drone.publish({
+    room: 'observable-room',
+    message: value,
+  });
+}
+
+function createMemberElement(member) {
+  const { name, color } = member.clientData;
+  const el = document.createElement('div');
+  el.appendChild(document.createTextNode(name));
+  el.className = 'member';
+  el.style.color = color;
+  return el;
+}
+
+function updateMembersDOM() {
+  DOM.membersCount.innerText = `${members.length} users in room:`;
+  DOM.membersList.innerHTML = '';
+  members.forEach(member =>
+    DOM.membersList.appendChild(createMemberElement(member))
+  );
+}
+
+function createMessageElement(text, member) {
+  const el = document.createElement('div');
+  el.appendChild(createMemberElement(member));
+  el.appendChild(document.createTextNode(text));
+  el.className = 'message';
+  return el;
+}
+
+function addMessageToListDOM(text, member) {
+  const el = DOM.messages;
+  const wasTop = el.scrollTop === el.scrollHeight - el.clientHeight;
+  el.appendChild(createMessageElement(text, member));
+  if (wasTop) {
+    el.scrollTop = el.scrollHeight - el.clientHeight;
+  }
+}
+</script>
+  </body>
+  <p>Thanks to scaledrone <a href="https://www.scaledrone.com">go here</a></p>
+  <p>v-mail servers<br><a href="https://keshuook.github.io/software/vmail#1">1</a><br><a href="https://keshuook.github.io/software/vmail#2">2</a><br><a href="https://keshuook.github.io/software/vmail#3">3</a> </p>
+</html>

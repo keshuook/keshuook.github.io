@@ -1,0 +1,39 @@
+<HTMLDOCTYPE!>
+<html>
+<head>
+<link rel="shortcut icon" href="https://keshuook.github.io/favicon.ico" type="image/x-icon">
+<link rel="icon" href="https://keshuook.github.io/favicon.ico" type="image/x-icon">
+<title>passwordmaker</title>
+<link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<div id="icons"><a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
+<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
+<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
+<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
+<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
+<p id="demo"></p>
+<div id="header">
+<h1>password maker</h1>
+</div>
+<div id="middle">
+<p>spelling mistakes are on purpose these paswords are not that strong</p>
+<button type="button" onclick="document.getElementById('show').style.display='block'">two step genrate</button>
+<a id="show" style="display:none" href="">are you sure</a>
+</div>
+<script>
+var spam = new Array("p@ssword","1ho0die","z3dmaker","#ellopeople","schoold@ys",
+"p!@noes are awesome","3lectronics","r@ndom4","c@psl0ck","f!r3trucks",
+"l@ptops&re&copy00l","&copyo0lpeople","#otdog","z3ebr@crowsing","password",
+"$o0pt#ickens","longro@d","@llisgo0d","number-","ko0lEr$"
+);
+var x;
+x = Math.floor(Math.random() * 20);
+var y;
+y = Math.floor(Math.random() * 9998 + 1);
+document.write(spam[x]+y+"<br>");
+
+</script>
+</body>
+</html>

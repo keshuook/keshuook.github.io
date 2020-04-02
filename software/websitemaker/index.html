@@ -1,0 +1,71 @@
+<HTMLDOCTYPE!>
+<html>
+<head>
+<title>webmaker</title>
+<link rel="icon" type="image/x-icon" href="keshuook.github.io/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+@media only screen and (max-width:800px) {
+body, #header, #middle, a, h2 {
+width: 80%;
+}
+}
+@media only screen and (max-width:500px) {
+body, #header, #middle, a, h2 {
+width: 100%;
+}
+}
+#header {
+background-color: #fff;
+text-align: center;
+}
+body {
+background-color: #558000;
+}
+button {
+background-color: #e1f35a;
+color: #fff;
+}
+#b {
+background-color: #ffe6e6;
+}
+#icons {
+background-color: red;
+text-align: center;
+}
+</style>
+</head>
+<body>
+<div id="icons"><a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
+<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
+<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
+<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
+<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
+<div id="header">
+<h1>website maker</h1>
+</div>
+<label>title : <label><input id="title" type="text" value="websitemaker"></input><br>
+<label>background color : <label><input id="bcolor" type="text" value="#558000"></input><p>(In hexadecimal please)</p><br>
+<label>header color : <label><input id="hcolor" type="text" value="#ffffff"></input><p>(In hexadecimal please)</p><br>
+<label>header : <label><input id="head" type="text" value="websitemaker"></input><br>
+<label>image : <label><input id="image" type="text" value="https://keshuook.github.io/money-2724241_640.jpg"></input><br>
+<label>about website : <label><input id="inside" type="text" value=" this is a software where you can make your website without learning html. It is started by keshuook. If you have any problem with us please contact us"></input><br>
+<button type="button" onclick="get();">click</button><br>
+<div id="b">
+<code id="a">
+</code>
+</div>
+</body>
+<script>
+function get(){
+var title = document.getElementById('title').value;
+var bcolor = document.getElementById('bcolor').value;
+var hcolor = document.getElementById('hcolor').value;
+var head = document.getElementById('head').value;
+var inside = document.getElementById('inside').value;
+var image = document.getElementById('image').value;
+var finished = "&lt;HTMLDOCTYPE!&gt; <br> &lt;html&gt; <br> &lt;head&gt; <br> &lt;title&gt;" + title + "&lt;/title&gt; <br> &lt;style&gt; <br> body {<br>background-color: " + bcolor + "<br>}<br>#header {<br>background-color: " + hcolor + ";<br>text-align: center;<br>}<br>#image {<br>width: 800px;<br>float: left;<br>}<br>#text {<br>width: 500px;<br>float: right;<br>}<br>&lt;/style&gt;<br> &lt;/head&gt;<br>&lt;body&gt;<br>&lt;div id=&quot;header&quot;&gt;<br>&lt;h1&gt;" + head + "&lt;/h1&gt;<br>&lt;/div&gt;<br>&lt;p id=&quot;text&quot;&gt;" + inside + "&lt;/p&gt;<br>&lt;img id=&quot;image&quot; src=&quot;" + image +"&quot;&gt;&lt;/img&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;"
+document.getElementById('a').innerHTML = finished;
+}
+</script>
+</html>

@@ -1,0 +1,41 @@
+<HTMLDOCTYPE!>
+<html>
+<head>
+<title>spamer</title>
+<link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+<div id="icons"><a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
+<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
+<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
+<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
+<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
+<p id="demo"></p>
+<div id="header">
+<h1>spamer</h1>
+</div>
+<div id="middle">
+<button type="button" onclick="document.getElementById('show').style.display='block'">two step genrate</button>
+<a id="show" style="display:none" href="">are you sure</a>
+</div>
+<script>
+var spam = new Array("hi","can you take a look at this"
+,"what do you do every day","this is great work","go to this website","can you teach me how to do this","I am at loss of words","I think these have a few mistakes","how about you take a look at this","that makes so much sense!","I see you iz BUSY? ;>;",
+"SOOOOOO! Pls atleast check this song out ;-;",
+"check it out!",
+"Oh mah gawd sorry I never told it to ask u ;-; I will ask later tysm if you read meh comment.",
+"and also Merry Christmas and A Happy New Year!!!",
+"My first one that says Work in Progress",
+"I will but i did not understand your question",
+"What do you mean?",
+"can you PLEAS PLEASE send me a TUTORIAL!",
+);
+var x;
+for (i=0;i<20;i++){
+x = Math.floor(Math.random() * 18);
+document.write(spam[x]+"<br>");
+}
+</script>
+</body>
+</html>
