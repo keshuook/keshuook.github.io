@@ -1,0 +1,32 @@
+@media only screen and (max-width:800px) {
+body, #header, #middle, a, h2, #icons {
+width: 80%;
+}
+}
+@media only screen and (max-width:500px) {
+body, #header, #middle, a, h2, #icons {
+width: 100%;
+}
+}
+body {
+background-color: #6cf;
+}
+#header {
+background-color: red;
+text-align: center;
+}
+#middle {
+background-color: grey;
+text-align: center;
+color: white;
+}
+a {
+color: white;
+}
+h2 {
+color: blue;
+}
+#icons {
+background-color: blue;
+text-align: center;
+}
