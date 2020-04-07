@@ -1,0 +1,57 @@
+<p id="show"></p>
+<script>
+function error(text){
+console.log("error" + text);
+alert("error" + text);
+} 
+var color;
+const LINK = window.location.href;
+if (LINK.charAt(43) == "c"){
+color = "#";
+for (i = 43;i < 49;i++){
+color += LINK.charAt(i);
+}
+var out = '<center><h1 style="color:' + color + ';">';
+console.log(color);
+}
+else {
+error("color");
+}
+if (LINK.charAt(50) == "h"){
+var i;
+var car;
+for (i = 51;i < 81;i++){
+if (LINK.charAt(i) == "%") {
+car = i + 1;
+i = 82;
+console.log(car);
+} else {
+out += LINK.charAt(i);
+}
+}
+out += "</h1>";
+}else{
+error("header");
+}
+if (LINK.charAt(car) == "t"){
+for (i = car + 1;i < car + 200;i++){
+if (LINK.charAt(i) == "%") {
+car = i + 1;
+i = car + 201;
+console.log(car);
+}
+else if (LINK.charAt(i) == "_") {
+out += " ";
+}
+else {
+out += LINK.charAt(i);
+}
+}
+out += "</center>";
+}
+else {
+error("text");
+}
+console.log("<!--htmlcode-->" + out); //end
+document.write(out);
+</script>

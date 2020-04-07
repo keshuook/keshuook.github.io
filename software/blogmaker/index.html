@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>blog link maker</title>
+</head>
+<body>
+<label>header (30 words without space) : </label><input id="h"><br>
+<label>header color : </label><input id="hc" type="color"><br>
+<label>text (200 words with underscores and not space)</label><input id="t"><br><button onclick="go();">go</button>
+<p id="out"></p><br>
+<a href="" id="link">your website</a>
+<script>
+alert('do not use % and instead of space use under score');
+function go(){
+var h = document.getElementById('h').value;
+var hc = document.getElementById('hc').value;
+var t = document.getElementById('t').value;
+var out = "https://keshuook.github.io/software/blog/?c" + hc + "h" + h + "%t" + t + "%";
+document.getElementById('out').innerHTML = out;
+document.getElementById('link').href = out;
+}
+</script>
+</body>
+</html>
