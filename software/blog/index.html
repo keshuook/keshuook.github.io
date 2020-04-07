@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My blog</title>
+</head>
+<body>
 <p id="show"></p>
 <script>
 function error(text){
@@ -6,9 +12,9 @@ alert("error" + text);
 } 
 var color;
 const LINK = window.location.href;
-if (LINK.charAt(43) == "c"){
-color = "#";
-for (i = 43;i < 49;i++){
+if (LINK.charAt(42) == "c"){//43
+color = " #";
+for (i = 42;i < 48;i++){
 color += LINK.charAt(i);
 }
 var out = '<center><h1 style="color:' + color + ';">';
@@ -55,3 +61,5 @@ error("text");
 console.log("<!--htmlcode-->" + out); //end
 document.write(out);
 </script>
+</body>
+</html>
