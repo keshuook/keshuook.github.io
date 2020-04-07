@@ -2,19 +2,29 @@
 <html>
 <head>
 <title>blog link maker</title>
+<style>
+body {
+background-color: #e6e6e6;
+}
+</style>
 </head>
 <body>
-<label>header (30 words without space) : </label><input id="h"><br>
+<p>background color will be the color of the background of this website</p>
+<label>header (30 words limit without space or %) : </label><input id="h"><br>
 <label>header color : </label><input id="hc" type="color"><br>
-<label>text (200 words with underscores and not space)</label><input id="t"><br><button onclick="go();">go</button>
+<label>text (200 words limit without %)</label><input id="t"><br><button onclick="go();">go</button>
 <p id="out"></p><br>
 <a href="" id="link">your website</a>
 <script>
-alert('do not use % and instead of space use under score');
+alert('do not use %');
 function go(){
+var i;
+var out = tt;
+var t;
 var h = document.getElementById('h').value;
 var hc = document.getElementById('hc').value;
-var t = document.getElementById('t').value;
+var tt = document.getElementById('t').value;
+t = tt.replace(/ /g, "_");
 var out = "https://keshuook.github.io/software/blog/?c" + hc + "h" + h + "%t" + t + "%";
 document.getElementById('out').innerHTML = out;
 document.getElementById('link').href = out;
