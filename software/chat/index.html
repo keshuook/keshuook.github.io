@@ -33,9 +33,7 @@ width: 100%;
       margin-bottom: 30px;
     }
     .messages {
-      flex-shrink: 100;
-      overflow: auto;
-	  height: 100px;
+	  height: 1000px;
     }
     .message {
       padding: 2px 0;
@@ -57,7 +55,15 @@ width: 100%;
       margin: 10px;
     }
   </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+<div id="icons">
+<a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
+<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
+<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
+<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
+<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a>
+<a href="https://keshuook.github.io/AI_chat"><button><i class="material-icons">help</i><br><p style="font-size: 10px;">chat bot</p></button></a></div>
 <body>
   <p align="center"><h1 align="center">Keshuook chat</h1>
   <hr>
@@ -66,15 +72,18 @@ width: 100%;
   <div class="members-list">loading</div>
   <p class="messages"></p>
   <form class="message-form" onsubmit="return false;">
-    <input class="message-form__input" placeholder="Type a message.." type="text"/>
-    <input class="message-form__button" value="Send" type="submit"/>
+    <input class="message-form__input" placeholder="Type a message..">
+    <input class="message-form__button" value="Send" type="submit">
   </form>
-  <script>// PS! Replace this with your own channel ID
-// If you use this channel ID your app will stop working in the future
+  <script>
+    var person = prompt("Please enter your name", "username_not_defined");
+  if (person != null) {
+
+  }
 const CLIENT_ID = 'Gk0lCGPLNsteeDlb';
 var sub = document.getElementById('sub');
 const drone = new ScaleDrone(CLIENT_ID, {
-  data: { // Will be sent out as clientData via events
+  data: {
     name: getRandomName(),
     color: getRandomColor(),
   },
@@ -116,7 +125,6 @@ drone.on('open', error => {
     if (member) {
       addMessageToListDOM(text, member);
     } else {
-      // Message is from server
     }
   });
 });
@@ -130,23 +138,14 @@ drone.on('error', error => {
 });
 
 function getRandomName() {
-  const adjs = ["keshuook_user "];
-  var min=1; 
-  var max=2000;  
-  var random = Math.floor(Math.random() * (+max - +min)) + min;
     return (
-    adjs[Math.floor(Math.random() * adjs.length)] +
-    " no." + random
-    // remove variable random if it doesnt work, like concatenation
-     
+	person
   );
 }
 
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 0xaaaaaa).toString(16);
 }
-
-//------------- DOM STUFF
 
 const DOM = {
   membersCount: document.querySelector('.members-count'),
