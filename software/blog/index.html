@@ -32,21 +32,21 @@ error("color");
 if (LINK.charAt(50) == "h"){
 var i;
 var car;
-for (i = 51;i < 81;i++){
+for (i = 51;i < 101;i++){
 if (LINK.charAt(i) == "%") {
 car = i + 1;
-i = 82;
+i = 102;
 console.log(car);
 } else {
 out += LINK.charAt(i);
 }
 }
 out += "</h1>";
-}else{
+}else {
 error("header");
 }
 if (LINK.charAt(car) == "t"){
-for (i = car + 1;i < car + 200;i++){
+for (i = car + 1;i < car + 600;i++){
 if (LINK.charAt(i) == "%") {
 car = i + 1;
 i = car + 201;
