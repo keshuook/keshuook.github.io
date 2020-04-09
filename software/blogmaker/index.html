@@ -10,9 +10,9 @@ background-color: #e6e6e6;
 </head>
 <body>
 <p>background color will be the color of the background of this website</p>
-<label>header (30 words limit without space or %) : </label><input id="h"><br>
+<label>header (50 carecters limit without %) : </label><input id="h"><br>
 <label>header color : </label><input id="hc" type="color"><br>
-<label>text (200 words limit without %)</label><input id="t"><br><button onclick="go();">go</button>
+<label>text (600 carecters limit without %)</label><input id="t"><br><button onclick="go();">go</button>
 <p id="out"></p><br>
 <a href="" id="link">your website</a>
 <script>
@@ -21,10 +21,12 @@ function go(){
 var i;
 var out = tt;
 var t;
-var h = document.getElementById('h').value;
+var h;
+var hh = document.getElementById('h').value;
 var hc = document.getElementById('hc').value;
 var tt = document.getElementById('t').value;
 t = tt.replace(/ /g, "_");
+h = hh.replace(/ /g, "-");
 var out = "https://keshuook.github.io/software/blog/?c" + hc + "h" + h + "%t" + t + "%";
 document.getElementById('out').innerHTML = out;
 document.getElementById('link').href = out;
