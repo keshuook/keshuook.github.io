@@ -1,8 +1,9 @@
+document.getElementById('no').innerHTML = 'Search made by keshuook<br>No space or caps in search';
 function outd() {
 document.getElementById('output').style.display = 'block';
 }
 function search() {
-document.getElementById('no').innerHTML = 'Search made by keshuook';
+document.getElementById('no').innerHTML = '';
 var search = document.getElementById('search').value;
 if (search == "game") {
 outd();
