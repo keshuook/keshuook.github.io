@@ -1,4 +1,4 @@
-document.getElementById('no').innerHTML = '<center style="background-color: #fff">Search Made By Keshuook Keshuook is awesome</center><br>No space or caps in search';
+document.getElementById('no').innerHTML = 'Search made by keshuook<br>No space or caps in search';
 function outd() {
 document.getElementById('output').style.display = 'block';
 }
