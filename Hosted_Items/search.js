@@ -2,7 +2,7 @@ function outd() {
 document.getElementById('output').style.display = 'block';
 }
 function search() {
-document.getElementById('no').innerHTML = '';
+document.getElementById('no').innerHTML = 'Search made by keshuook';
 var search = document.getElementById('search').value;
 if (search == "game") {
 outd();
