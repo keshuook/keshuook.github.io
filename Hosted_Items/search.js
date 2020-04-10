@@ -1,5 +1,5 @@
-document.write('Search Made By Keshuook Keshuook is awesome');
 document.getElementById('no').innerHTML = 'Search made by keshuook<br>No space or caps in search';
+document.write('<center style="background-color: #fff">Search Made By Keshuook Keshuook is awesome</center>');
 function outd() {
 document.getElementById('output').style.display = 'block';
 }
