@@ -71,12 +71,60 @@ width: 100%;
   <div class="members-count">loading</div>.
   <div class="members-list">loading</div>
   <p class="messages"></p>
+  <div id="emoji" style="display: none;">
+  <button onclick="es('😃');">😃</button>
+  <button onclick="es('😎');">😎</button>
+  <button onclick="es('😂');">😂</button>
+  <button onclick="es('😊');">😊</button>
+  <button onclick="es('😒');">😒</button>
+  <button onclick="es('😁');">😁</button>
+  <button onclick="es('😢');">😢</button>
+  <button onclick="es('😆');">😆</button>
+  <button onclick="es('🤢');">🤢</button>
+  <button onclick="es('😴');">😴</button><br>
+  <button onclick="es('👌');">👌</button>
+  <button onclick="es('👍');">👍</button>
+  <button onclick="es('✌');">✌</button>
+  <button onclick="es('🤞');">🤞</button>
+  <button onclick="es('❤');">❤</button>
+  <button onclick="es('👏');">👏</button><br>
+  <button onclick="es('🍕');">🍕</button>
+  <button onclick="es('🍔');">🍔</button>
+  <button onclick="es('🍟');">🍟</button>
+  <button onclick="es('🌭');">🌭</button>
+  <button onclick="es('🍿');">🍿</button>
+  <button onclick="es('🧂');">🧂</button>
+  <button onclick="es('🥓');">🥓</button><br>
+  <button onclick="es('🛺');">🛺</button>
+  <button onclick="es('🚙');">🚙</button>
+  <button onclick="es('🚲');">🚲</button>
+  <button onclick="es('🎶');">🎶</button>
+  <button onclick="es('🎁');">🎁</button>
+  <button onclick="es('👀');">👀</button><br>
+  </div>
+  <button onclick="emojishow();">😃 Emojis</button>
   <form class="message-form" onsubmit="return false;">
-    <input class="message-form__input" placeholder="Type a message..">
+    <input class="message-form__input" id="msg" placeholder="Type a message..">
     <input class="message-form__button" value="Send" type="submit">
   </form>
   <script>
-    var person = prompt("Please enter your name", "username_not_defined");
+  var z = 160;
+  function es(e){
+  document.getElementById('msg').value += e;
+  }
+function emojishow(){
+  var x = document.getElementById("emoji");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+ const adjs = ["autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark", "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter", "patient", "twilight", "dawn", "crimson", "wispy", "weathered", "blue", "billowing", "broken", "cold", "damp", "falling", "frosty", "green", "long", "late", "lingering", "bold", "little", "morning", "muddy", "old", "red", "rough", "still", "small", "sparkling", "throbbing", "shy", "wandering", "withered", "wild", "black", "young", "holy", "solitary", "fragrant", "aged", "snowy", "proud", "floral", "restless", "divine", "polished", "ancient", "purple", "lively", "nameless"];
+ const nouns = ["waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning", "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter", "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook", "butterfly", "bush", "dew", "dust", "field", "fire", "flower", "firefly", "feather", "grass", "haze", "mountain", "night", "pond", "darkness", "snowflake", "silence", "sound", "sky", "shape", "surf", "thunder", "violet", "water", "wildflower", "wave", "water", "resonance", "sun", "wood", "dream", "cherry", "tree", "fog", "frost", "voice", "paper", "frog", "smoke", "star"];
+ var name = 
+adjs[Math.floor(Math.random() * adjs.length)] + "_" + nouns[Math.floor(Math.random() * nouns.length)];
+    var person = prompt("Please enter your name", name);
   if (person != null) {
 
   }
@@ -84,7 +132,7 @@ const CLIENT_ID = 'Gk0lCGPLNsteeDlb';
 var sub = document.getElementById('sub');
 const drone = new ScaleDrone(CLIENT_ID, {
   data: {
-    name: getRandomName(),
+    name: getName(),
     color: getRandomColor(),
   },
 });
@@ -137,7 +185,7 @@ drone.on('error', error => {
   console.error(error);
 });
 
-function getRandomName() {
+function getName() {
     return (
 	person
   );
@@ -159,6 +207,8 @@ DOM.form.addEventListener('submit', sendMessage);
 
 function sendMessage() {
   const value = DOM.input.value;
+  window.scrollTo(0, z);
+  z += 25;
   if (value === '') {
     return;
   }
