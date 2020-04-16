@@ -26,3 +26,4 @@ document.getElementById('no').innerHTML = '';
 ,3000)
 }
 }
+document.write('<b1><b>SUSHANTAN IS AN IDIOT</h1></b>');
