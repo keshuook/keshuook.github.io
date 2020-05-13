@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<head>
+<title>Pizzeria</title>
+<link rel="shortcut icon" href="favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+h1,title {
+font-family: 'Dancing Script';
+}
+legend,button {
+font-size: 20px;
+font-family: 'Cedarville Cursive';
+}
+</style>
+</head>
+<body>
+<center>
+<h1>Keshuook's Pizzeria</h1>
+<hr>
+<canvas height="400" width="700" id="canvas"></canvas><br>
+<fieldset>
+<b>
+<legend>Toppings</legend>
+<button onclick="add('1');">Add Sauce</button>
+<button onclick="add('2');">Add Cheese</button>
+<button onclick="add('3');">Add Olives</button><hr>
+<button onclick="add('4');">BAKE</button>
+</b>
+</fieldset>
+</center>
+<script>
+confirm('Right click to save your pizza.');
+var canvas = document.getElementById('canvas');
+var canvasContext = canvas.getContext('2d');
+function circle(x,y,middle,radius,color){
+canvasContext.fillStyle = color;
+canvasContext.beginPath();
+canvasContext.arc(x,y,middle,radius,Math.PI,true);
+canvasContext.fill();
+}
+function rect(x,y,x2,y2,color) {
+canvasContext.fillStyle = color;
+canvasContext.fillRect(x,y,x2,y2);
+}
+var tpresed = 100;
+function add(ipt){
+if (ipt == 1){
+tpresed -= 10;
+var torc = prompt("Click type tomato for tomato sauce\ntype pesto for pesto sauce","pesto");
+if (torc == "pesto"){
+circle(canvas.width/2,canvas.height/2,80,100,'rgba(0, 128, 0, ' + tpresed +')');
+}
+else if (torc == "tomato"){
+circle(canvas.width/2,canvas.height/2,80,100,'rgba(255, 10, 0, ' + tpresed +')');
+} else {
+alert('not recognised');
+}
+}
+function random(ipt){
+if (ipt == 0){
+return  Math.floor((Math.random() * 110) + 300);
+}else{
+return Math.floor((Math.random() * 120) + 140);
+}
+}
+if (ipt == 2){
+rect(random(0),random(1),10,10,'#ffff33');
+rect(random(0),random(1),10,10,'#ffff33');
+rect(random(0),random(1),10,10,'#ffff33');
+rect(random(0),random(1),10,10,'#ffff33');
+}
+if (ipt == 3){
+circle(random(0),random(1),10,10,'#000');
+circle(random(0),random(1),10,10,'#000');
+}
+if (ipt == 4){
+circle(canvas.width/2,canvas.height/2,100,100,'rgba(57, 38, 19, 0.17)');
+}
+}
+rect(0,0,canvas.width,canvas.height,'black');
+circle(canvas.width/2,canvas.height/2,100,100,'rgba(255, 255, 204, 0.88)');
+</script>
+</body>
+</html>
