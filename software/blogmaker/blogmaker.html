@@ -1,0 +1,28 @@
+<label>title of blog : </label><input class="ipt"><br>
+<label>text of blog(&nl for new line) : </label><textarea class="ipt"></textarea><br>
+<label>image of blog : </label><input class="ipt" placeholder="Give a link"><br>
+<label>allow dark theeme </label><input class="ipt" type="checkbox"><br>
+<label>footer of blog : </label><input class="ipt"><br>
+<button onclick="done();">Done</button>
+<script>
+function done(){
+var ipt = document.getElementsByClassName('ipt');
+var end = "https://keshuook.github.io/software/blog#";
+end += ipt[0].value;
+end += "@#//";
+var x = ipt[1].value.replace(/&nl/g, "&lt;br&gt;");
+end += x;
+end += "@#//";
+end += ipt[2].value;
+end += "@#//";
+if(ipt[3].checked == true){
+end += 1;
+}else{
+end += 0;
+}
+end += "@#//";
+end += ipt[4].value;
+end += "@#//";
+document.write(end);
+}
+</script>
