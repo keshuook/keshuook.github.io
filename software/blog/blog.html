@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My blog</title>
+<style>
+::-webkit-scrollbar {width:10px;}
+::-webkit-scrollbar-track {background: #c0c0c0; border-radius: 7.5px;}
+::-webkit-scrollbar-track:hover {background: #d0d0d0; border-radius: 7.5px;}
+::-webkit-scrollbar-thumb {background: #aaa; border-radius: 7.5px;}
+::-webkit-scrollbar-thumb:hover {background: #408080;}
+.title{
+text-align: center;
+top: 0;
+width: 100%;
+position: fixed;
+background-color: rgba(255,0,0,0.5);
+}
+body {
+background-color: #eee;
+}
+button {
+border: none;
+background-color: #555;
+color: #fff;
+}
+button:hover {
+border: none;
+background-color: #EEE;
+color: #000;
+}
+a:hover {
+color: purple;
+}
+a {
+color: blue;
+}
+.footer {
+clear: both;
+text-align: center;
+background-color: #ccc;
+color: #000;
+position: fixed;
+bottom: 0;
+width: 100%
+}
+.blog {
+float: right;
+padding: 20px;
+width: 75%;
+background-color: #ccc;
+}
+.side-bar {
+float: left;
+padding: 20px;
+width: 15%;
+background-color: #ccc;
+position: fixed;
+}
+img:hover{
+width: 100%;
+height: 100%;
+background-color: rgba(40,255,10,0.05);
+}
+img {
+width: 100%;
+height: 100%;
+}
+</style>
+</head>
+<body id="body">
+<div class="title">
+<h1 class="custom"></h1>
+</div>
+<br><br><br><br><br><br><br>
+<p class="blog custom">
+
+</p>
+<div class="side-bar">
+<img class="custom"></img>
+<button onclick="dark();" class="custom">Dark mode</button>
+</div>
+<br><br><br><br>
+<div class="footer">
+<h2 class="custom">
+</h2>
+</div>
+<script>
+var y = document.getElementsByClassName('custom');
+var curent = window.location.href;
+var click = 0;
+var x = document.getElementById('body');
+var info = [curent.search("#"),curent.search("@#//"),"",0,0];
+info[2] = decodeURIComponent(curent.slice(info[0]+1,info[1]));
+y[0].innerHTML = info[2];
+curent = curent.replace("@#//","");
+info[3] = curent.search("@#//");
+info[2] = decodeURIComponent(curent.slice(info[1],info[3]));
+y[1].innerHTML = info[2];
+curent = curent.replace("@#//","");
+info[4] = curent.search("@#//");
+info[2] = curent.slice(info[3],info[4]);
+y[2].src = info[2];
+curent = curent.replace("@#//","");
+info[1] = curent.search("@#//");
+info[2] = curent.slice(info[4],info[1]);
+if (info[2] == 0){
+y[3].style.display = "none";
+}
+curent = curent.replace("@#//","");
+info[1] = curent.search("@#//");
+info[2] = decodeURIComponent(curent.slice(info[4]+1,info[1]));
+y[4].innerHTML = info[2];
+function dark(){
+if (click == 0){
+click = 1;
+x.style = "background-color: #888;";
+}else{
+click = 0;
+x.style = "background-color: #eee;";
+}
+}
+</script>
+</body>
+</html>
