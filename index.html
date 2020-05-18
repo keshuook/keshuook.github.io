@@ -1,169 +1,158 @@
-<HTMLDOCTYPE!>
+<!DOCTYPE html>
 <html>
 <head>
-  <meta name="google-site-verification" content="BZCuIs9NI0MJ4IDTsB676XMxQ0EIAKMoqQl3FgmaPo4" />
+<title>Keshuook</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<title>keshuook</title>
+<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="favicon.ico">
 <style>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-@media only screen and (max-width:800px) {
-body, #header, #middle, a, #navigate ,#info #footer {
-width: 80%;
+::-webkit-scrollbar {width:10px;}
+::-webkit-scrollbar-track {background: #408080; border-radius: 7.5px;}
+::-webkit-scrollbar-track:hover {background: #609090;}
+::-webkit-scrollbar-thumb {background: #8080ff; border-radius: 7.5px;}
+::-webkit-scrollbar-thumb:hover {background: #8000ff;}
+body{
+background-image: url("background.jpg");
+font-family: 'Handlee';
+cursor: url(mouse.png),auto;
 }
+button {
+cursor: url(mouse.png),auto;
+width: 10%;
+height: 100%;
+border: none;
+background-color: #d3701d;
 }
-@media only screen and (max-width:500px) {
-body, #header, #middle, a, #navigate, #info #footer {
+#help {
+border: none;
+cursor: help;
+border-radius: 15px;
+}
+button:hover{
+border: none;
+background-color: #cd8820;
+}
+i {
 width: 100%;
+height: 100%;
 }
-}
-#s2{
-font-size: 30px;
-text-align: centre;
-}
-body {
-background-color: #6cf;
-}
-a {color: green;
-}
-#header{
-  background-image: url("image1.jpg");
-color: #fff;
-font-size: 50px;
+#nav {
+background-color: rgba(220,60,20,0.2);
 text-align: center;
-}
-#navigate{
-background-color: #0073e6;
-width: 200px
-float: left;
-}
-#info{
-text-align: center;
-background-color: #39f;
-width: 800px
-float: right;
-}
-#icons {
-text-align: center;
-background-color: #39f;
-font-size:12px;
 top: 0;
 position: fixed;
-width: 100%;
+width: 99%;
+}
+.text{
+cursor: text;
+color: #ccc;
+background-color: rgba(220,60,20,0.4);
+}
+.text:hover{
+background-color: rgba(220,60,20,0.45);
+}
+.p {
+font-size: 24px;
+clear: both;
+}
+a {
+cursor: url(mouse.png),auto;
+color: #ccc;
+}
+a:hover {
+color: #aaa;
 }
 </style>
 </head>
-<div id="icons">
-<p id="no">No spaces or Caps in search please</p>
-<a id="result"><button id="output" style="display: none;">Result</button></a><input type="text" id="search"><button onclick="search()">search</button><br>
-<a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
-<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
-<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
-<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
-<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a>
-<a href="https://keshuook.github.io/AI_chat"><button><i class="material-icons">help</i><br><p style="font-size: 10px;">chat bot</p></button></a></div>
 <body>
-  <br><br><br><br><br><br><br><br><br><br>
-<div id="header">
-<h1>keshuook's website</h1>
-</div>
-<div id="middle">
-<div id="navigate">
- <button type="button" onclick="document.getElementById('i7').style.display='block'">interesting facts about us</button><br>
-  <button type="button" onclick="document.getElementById('i4').style.display='block'">history</button><br>
-  <canvas id="canvas" width="250" height="100"></canvas>
-  </div>
-  <div id="info">
-  <p id="s2">you can visit some of <br>keshuook's software
-  and collab<br>with keshuook & us and ask<br>for software
-  </p>
-<div id="i7" style="display:none">
-<button 
-type="button"onclick="document.getElementById('i7').style.display='none'">go back</button><br>
-<p id="s2">none of the softwares here<br>require payment though credit<br>is required</p>
-</div>
-<div id="i4" style="display:none">
-<button 
-type="button"onclick="document.getElementById('i4').style.display='none'">go back</button><br>
-<p id="s2">we started in 2020 when keshuook got an idea<br>keshuook wanted to help people so being the great<br> person
-keshuook is keshuook started this company</p>
-</div>
-</div>
-</div>
+<iframe src="leave.gif" id="iframe" height="100%" width="100%" style="display: none;position: fixed;text-align: center;border: none;"></iframe>
+<a style="display: none;" id="a2"></a>
+<div id="nav">
+<input onclick="search();" id="help" placeholder=" search"><button style="display: none;" id="end" onclick="leave(end);"><i class="material-icons">search</i><br>search</button><br><br>
+<br><br>
+<button onclick="leave('');"><i class="material-icons">home</i><br>home</button>
+<button onclick="leave('music');"><i class="material-icons">shop</i><br>music</button>
+<button onclick="leave('software');"><i class="material-icons">android</i><br>software</button>
+<button onclick="leave('comment');"><i class="material-icons">email</i><br>contact</button>
+<button onclick="leave('game');"><i class="material-icons">play_arrow</i><br>games</button>
+</div><br><br><br><br><br><br><br><br>
+<a name="about">
+<h2 class="side text" style="float: right;"></h2>
+<p class="side text p" style="float: right;"></p>
+</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<a name="contact">
+<h2 class="side text" style="float: left;top: 1000;"></h2>
+<p class="side text p" style="float: left;"></p>
+</a>
 <script>
-function outd() {
-document.getElementById('output').style.display = 'block';
+var side = document.getElementsByClassName('side');
+var text = ["A","b","o","u","t"," ","M","e","<p class='p'>I am a living being who is specializing in the art of computer programming.</p>",
+"<p class='p'>I am currently learning javascript, a scripting language used in this website.</p>",
+"<p class='p'>Currently my favourite quote is: <i>"+'"'+"Two things are infinite: the universe and", 
+"<i>human stupidity; and I'm not sure about the universe.</i>"+'"'+" - Albert Einstein</p>"
+,"<p class='p'>Likes : Dogs, music & sunglasses</p>"
+,"C","o","n","t","a","c","t"," ","M","e"
+,"<p class='p'>You can contact me by going <a href='contact'>here</a>.</p>",
+"<p class='p'>But I suggest viewing my whole website<br></p>"
+,"<p class='p'>and then doing that.</p>"];
+var i = 0; 
+setInterval(function(){
+if (i < 8){
+side[0].innerHTML += text[i];
+}else if(i > 7 && i < 13){
+side[1].innerHTML += text[i];
+}else if (i > 12 && i < 23){
+side[2].innerHTML += text[i];
 }
+else if (i > 22 && i < 26){
+side[3].innerHTML += text[i];
+}
+i++;
+},80);
 function search() {
-document.getElementById('no').innerHTML = '';
-var search = document.getElementById('search').value;
-if (search == "game") {
-outd();
-document.getElementById('result').href = "https://keshuook.github.io/game";
-}
-else if (search == "watermellongame") {
-outd();
-document.getElementById('result').href = "https://keshuook.github.io/game";
-}
-else if (search == "scratch") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/game";
-}
-else if (search == "allroam") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/game";
+setInterval(function(){
+var search = document.getElementById('help').value;
+if (search == "game" || search == "watermellongame" || search == "scratch" || search == "allroam") {
+outd();end = "https://keshuook.github.io/game";
 }
 else if (search == "vmail") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/software/vmail";
+outd();end = "https://keshuook.github.io/software/vmail";
 }
-else if (search == "music") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/music";
-}
-else if (search == "dj") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/music";
+else if (search == "music" || search == "dj") {
+outd();end = "https://keshuook.github.io/music";
 }
 else if (search == "software") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/software";
+outd();end = "https://keshuook.github.io/software";
 }
-else if (search == "featured") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/featured";
-}
-else if (search == "coronavirus") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/featured";
-}
-else if (search == "covid19") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/featured";
+else if (search == "featured" || search == "coronavirus" || search == "covid19") {
+outd();end = "https://keshuook.github.io/featured";
 }
 else if (search == "websitemaker") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/software/websitemaker";
+outd();end = "https://keshuook.github.io/software/websitemaker";
 }
 else if (search == "passwordmaker") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/software/paswordmaker";
+outd();end = "https://keshuook.github.io/software/paswordmaker";
 }
 else if (search == "spamer") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/software/spamer";
+outd();end = "https://keshuook.github.io/software/spamer";
 }
 else if (search == "chat") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/software/chat";
+outd();end = "https://keshuook.github.io/software/chat";
 }
-else if (search == "error") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/error";
+else if (search == "help" || search == "comments") {
+outd();end = "https://keshuook.github.io/comments";
 }
-else if (search == "help") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/comments";
+},20);
 }
-else if (search == "comments") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/comments";
+function outd(){
+document.getElementById('end').style.display = "block";
 }
-else if (search == "nicewebsite") {
-outd();document.getElementById('result').href = "https://keshuook.github.io/comments";
-}
-else if (search == "edit") {
-outd();document.getElementById('result').href = "https://github.com/keshuook/keshuook.github.io";
-} else {
-document.getElementById('no').innerHTML = 'no result';
+function leave(link){
+document.getElementById('iframe').style.display = "block";
 setTimeout(function(){
-document.getElementById('no').innerHTML = '';
-}
-,3000)
-}
+document.getElementById('a2').href = link;
+document.getElementById('a2').click();
+},750);
 }
 </script>
 </body>
