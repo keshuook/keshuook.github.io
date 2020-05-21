@@ -67,9 +67,9 @@ color: #aaa;
 <body>
 <iframe src="leave.gif" id="iframe" height="100%" width="100%" style="display: none;position: fixed;text-align: center;border: none;"></iframe>
 <a style="display: none;" id="a2"></a>
+<a style="display: none;" id="a3">search.html</a>
 <div id="nav">
-<input onclick="search();" id="help" placeholder=" search"><button style="display: none;" id="end" onclick="leave(end);"><i class="material-icons">search</i><br>search</button><br><br>
-<br><br>
+<input onclick="search();" id="help" placeholder=" search">
 <button onclick="leave('');"><i class="material-icons">home</i><br>home</button>
 <button onclick="leave('music');"><i class="material-icons">shop</i><br>music</button>
 <button onclick="leave('software');"><i class="material-icons">android</i><br>software</button>
@@ -110,49 +110,7 @@ side[3].innerHTML += text[i];
 i++;
 },80);
 function search() {
-setInterval(function(){
-var search = document.getElementById('help').value;
-if (search == "game" || search == "watermellongame" || search == "scratch" || search == "allroam") {
-outd();end = "https://keshuook.github.io/game";
-}
-else if (search == "vmail") {
-outd();end = "https://keshuook.github.io/software/vmail";
-}
-else if (search == "music" || search == "dj") {
-outd();end = "https://keshuook.github.io/music";
-}
-else if (search == "software") {
-outd();end = "https://keshuook.github.io/software";
-}
-else if (search == "featured" || search == "coronavirus" || search == "covid19") {
-outd();end = "https://keshuook.github.io/featured";
-}
-else if (search == "websitemaker") {
-outd();end = "https://keshuook.github.io/software/websitemaker";
-}
-else if (search == "passwordmaker") {
-outd();end = "https://keshuook.github.io/software/paswordmaker";
-}
-else if (search == "spamer") {
-outd();end = "https://keshuook.github.io/software/spamer";
-}
-else if (search == "chat") {
-outd();end = "https://keshuook.github.io/software/chat";
-}
-else if (search == "help" || search == "comments") {
-outd();end = "https://keshuook.github.io/comments";
-}
-},20);
-}
-function outd(){
-document.getElementById('end').style.display = "block";
-}
-function leave(link){
-document.getElementById('iframe').style.display = "block";
-setTimeout(function(){
-document.getElementById('a2').href = link;
-document.getElementById('a2').click();
-},750);
+document.getElementById('a3').click();
 }
 </script>
 </body>
