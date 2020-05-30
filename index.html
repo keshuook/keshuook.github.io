@@ -12,12 +12,12 @@
 ::-webkit-scrollbar-thumb {background: #8080ff; border-radius: 7.5px;}
 ::-webkit-scrollbar-thumb:hover {background: #8000ff;}
 body{
-background-image: url("Background.jpg");
+background-image: url("home/Background.jpg");
 font-family: 'Handlee';
-cursor: url(mouse.png),auto;
+cursor: url(home/mouse.png),auto;
 }
 button {
-cursor: url(mouse.png),auto;
+cursor: url(home/mouse.png),auto;
 width: 10%;
 height: 100%;
 border: none;
@@ -56,24 +56,28 @@ font-size: 24px;
 clear: both;
 }
 a {
-cursor: url(mouse.png),auto;
+cursor: url(home/mouse.png),auto;
 color: #ccc;
 }
 a:hover {
 color: #aaa;
 }
+img {
+width: 72px;
+height: 72px;
+}
 </style>
 </head>
 <body>
-<iframe src="leave.gif" id="iframe" height="100%" width="100%" style="display: none;position: fixed;text-align: center;border: none;"></iframe>
+<iframe src="home/leave.gif" id="iframe" height="100%" width="100%" style="display: none;position: fixed;text-align: center;border: none;"></iframe>
 <a style="display: none;" id="a2"></a>
 <div id="nav">
-<input onclick="leave('search.html');" id="help" placeholder=" search"><br>
-<button onclick="leave('');"><i class="material-icons">home</i><br>home</button>
-<button onclick="leave('music');"><i class="material-icons">shop</i><br>music</button>
-<button onclick="leave('software');"><i class="material-icons">android</i><br>software</button>
-<button onclick="leave('comments');"><i class="material-icons">email</i><br>contact</button>
-<button onclick="leave('game');"><i class="material-icons">play_arrow</i><br>games</button>
+<input onclick="leave('search');" id="help" placeholder=" search"><br>
+<button onclick="leave('');"><img src="home/home_icon.png"></img><br>home</button>
+<button onclick="leave('music');"><img src="home/music_icon.png"></img><br>music</button>
+<button onclick="leave('software');"><img src="home/software_icon.png"></img><br>software</button>
+<button onclick="leave('comments');"><img src="home/contact_icon.png"></img><br>contact</button>
+<button onclick="leave('game');"><img src="home/game_icon.png"></img><br>games</button>
 </div><br><br><br><br><br><br><br><br>
 <a name="about">
 <h2 class="side text" style="float: right;"></h2>
