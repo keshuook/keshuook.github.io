@@ -1,124 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Keshuook</title>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="favicon.ico">
-<style>
-::-webkit-scrollbar {width:10px;}
-::-webkit-scrollbar-track {background: #408080; border-radius: 7.5px;}
-::-webkit-scrollbar-track:hover {background: #609090;}
-::-webkit-scrollbar-thumb {background: #8080ff; border-radius: 7.5px;}
-::-webkit-scrollbar-thumb:hover {background: #8000ff;}
-body{
-background-image: url("home/Background.jpg");
-font-family: 'Handlee';
-cursor: url(home/mouse.png),auto;
-}
-button {
-cursor: url(home/mouse.png),auto;
-width: 10%;
-height: 100%;
-border: none;
-background-color: #d3701d;
-}
-#help {
-border: none;
-cursor: help;
-border-radius: 15px;
-}
-button:hover{
-border: none;
-background-color: #cd8820;
-}
-i {
-width: 100%;
-height: 100%;
-}
-#nav {
-background-color: rgba(220,60,20,0.2);
-text-align: center;
-top: 0;
-position: fixed;
-width: 99%;
-}
-.text{
-cursor: text;
-color: #ccc;
-background-color: rgba(220,60,20,0.4);
-}
-.text:hover{
-background-color: rgba(220,60,20,0.45);
-}
-.p {
-font-size: 24px;
-clear: both;
-}
-a {
-cursor: url(home/mouse.png),auto;
-color: #ccc;
-}
-a:hover {
-color: #aaa;
-}
-img {
-width: 72px;
-height: 72px;
-}
-</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keshuook</title>
+<link rel="stylesheet" href="style.css">
+<script src="json.js"></script>
 </head>
 <body>
-<iframe src="home/leave.gif" id="iframe" height="100%" width="100%" style="display: none;position: fixed;text-align: center;border: none;"></iframe>
-<a style="display: none;" id="a2"></a>
-<div id="nav">
-<input onclick="leave('search');" id="help" placeholder=" search"><br>
-<button onclick="leave('');"><img src="home/home_icon.png"></img><br>home</button>
-<button onclick="leave('music');"><img src="home/music_icon.png"></img><br>music</button>
-<button onclick="leave('software');"><img src="home/software_icon.png"></img><br>software</button>
-<button onclick="leave('comments');"><img src="home/contact_icon.png"></img><br>contact</button>
-<button onclick="leave('game');"><img src="home/game_icon.png"></img><br>games</button>
-</div><br><br><br><br><br><br><br><br>
-<a name="about">
-<h2 class="side text" style="float: right;"></h2>
-<p class="side text p" style="float: right;"></p>
-</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-<a name="contact">
-<h2 class="side text" style="float: left;top: 1000;"></h2>
-<p class="side text p" style="float: left;"></p>
-</a>
-<script>
-var side = document.getElementsByClassName('side');
-var text = ["A","b","o","u","t"," ","M","e","<p class='p'>I am a living being who is specializing in the art of computer programming.</p>",
-"<p class='p'>I am currently learning javascript, a scripting language used in this website.</p>",
-"<p class='p'>Currently my favourite quote is: <i>"+'"'+"Two things are infinite: the universe and", 
-"<i>human stupidity; and I'm not sure about the universe.</i>"+'"'+" - Albert Einstein</p>"
-,"<p class='p'>Likes : Dogs, music & sunglasses</p>"
-,"C","o","n","t","a","c","t"," ","M","e"
-,"<p class='p'>You can contact me by going <a href='comments'>here</a>.</p>",
-"<p class='p'>But I suggest viewing my whole website<br></p>"
-,"<p class='p'>and then doing that.</p>"];
-var i = 0; 
-setInterval(function(){
-if (i < 8){
-side[0].innerHTML += text[i];
-}else if(i > 7 && i < 13){
-side[1].innerHTML += text[i];
-}else if (i > 12 && i < 23){
-side[2].innerHTML += text[i];
-}
-else if (i > 22 && i < 26){
-side[3].innerHTML += text[i];
-}
-i++;
-},80);
-function leave(link){	
-document.getElementById('iframe').style.display = "block";	
-setTimeout(function(){	
-document.getElementById('a2').href = link;	
-document.getElementById('a2').click();	
-},750);	
-}
-</script>
+<div id="iframe" class="para">
+</div>
+<div id="slideshow" class="para">
+<div id="title">
+<h1>Keshuook's website</h1>
+</div>
+<br><br><br><br><br><br>
+<div id="icons">
+<a href="#">Top</a><br>
+<a href="#About">About Me</a><br>
+<a href="#Contact">Contact Me</a><br>
+<a href="#Blog">My Blog</a><br>
+</div>
+</div>
+<a name="About">
+<div id="top-nav">
+<button onclick="leave(json.link1);"><i class="material-icons">home</i><br>home</button>
+<button onclick="leave(json.link2);"><i class="material-icons">shop</i><br>music</button>
+<button onclick="leave(json.link3);"><i class="material-icons">android</i><br>software</button>
+<button onclick="leave(json.link4);"><i class="material-icons">email</i><br>contact</button>
+<button onclick="leave(json.link5);"><i class="material-icons">play_arrow</i><br>games</button>
+</div>
+<br>
+<center><h1>About me</h1></center>
+<div id="para1" class="para">
+<div class="txt">
+I am a living being who is specializing in the art of computer programming.<br>
+I am currently learning javascript, a scripting language used in this website.<br>
+Currently my favourite quote is: "Two things are infinite: the universe and
+human stupidity; and I'm not sure about the universe." - Albert Einstein<br>
+Likes : Dogs, music & sunglasses<br>
+</div>
+</div>
+<a name="Contact">
+<center><h1>Contact me</h1></center>
+<div>
+</div>
+<div id="para2" class="para">
+<div class="txt">
+You can contact me by going <a href="comments" class="a">here</a>.<br>
+But I suggest viewing my whole website<br>
+and then doing that.<br>
+</div>
+</div>
+<a name="Blog">
+<center><h1>My blog</h1></center>
+<div id="para3" class="para">
+<p class="txt">You can go to my blog by clicking <a href="Blog" class="a">here</a></p>
+</div>
+<div id="footer">
+Website made by keshuook<br>
+liked this website?<br>
+<button id="like" onclick="feed('like');">👍</button>
+<button id="dis i like" onclick="feed('dis i like');">👎</button>
+<br><p>Your response does not reach keshuook</p>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
