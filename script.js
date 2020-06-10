@@ -1,5 +1,20 @@
+var down = document.getElementById('down');
+var x = 0;
+var inter = setInterval(function(){
+	x++;
+	if(x == 0){
+		down.innerHTML = "👇👇";
+	}else if(x == 1){
+		down.innerHTML = "<br>👇👇";
+		
+	}else{
+		down.innerHTML = "<br><br>👇👇";
+		x = 0;
+	}
+},400);
 window.onscroll = function() {
 	isSticky()
+	document.getElementById('down').style.display = "none";
 };
 
 var head = document.getElementById("top-nav");
