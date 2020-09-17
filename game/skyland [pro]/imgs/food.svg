@@ -1,0 +1,23 @@
+<svg width="49" height="58.99999999999999" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="61" width="51" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="#ffff89" transform="rotate(-24.542688369750977 18.222345352172862,26.433757781982422) " id="svg_7" height="23.9252" width="0.8814" y="14.47116" x="17.78165" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(-2.189368486404419 22.334489822387606,25.12534141540526) " id="svg_8" height="23.9252" width="0.8814" y="13.16275" x="21.89379" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(-10.815603256225586 20.46533584594732,25.312255859375) " id="svg_9" height="23.9252" width="0.8814" y="13.34967" x="20.02464" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(3.0072920322418213 24.016731262207035,25.312255859375046) " id="svg_10" height="23.9252" width="0.8814" y="13.34967" x="23.57603" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(6.809976577758789 26.446632385253924,24.751502990722646) " id="svg_11" height="23.9252" width="0.8814" y="12.78892" x="26.00594" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(18.657947540283203 30.745693206787088,25.125341415405273) " id="svg_12" height="23.9252" width="0.8814" y="13.16275" x="30.305" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(13.614249229431152 29.25037002563475,24.00383758544923) " id="svg_13" height="23.9252" width="0.8814" y="12.04126" x="28.80967" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(21.865066528320312 32.80176544189453,25.87300872802735) " id="svg_14" height="23.9252" width="0.8814" y="13.91041" x="32.36107" stroke-width="NaN" fill="#000"/>
+  <rect stroke="#ffff89" transform="rotate(-0.2067704200744629 25.4971179962143,37.40643310546865) " id="svg_19" height="0.66323" width="6.30866" y="37.07482" x="22.34279" stroke-width="NaN" fill="#000"/>
+  <text stroke="#ffff89" transform="matrix(0.4764088988304138,0,0,0.5295278429985046,4.933209906332195,7.05708235502243) " font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Oswald, sans-serif" font-size="24" id="svg_21" y="86.50828" x="18.19745" stroke-width="0" fill="#000000">Food</text>
+ </g>
+</svg>
