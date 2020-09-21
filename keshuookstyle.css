@@ -9,14 +9,19 @@ width: 100%;
 }
 }
 body {
-background-color: #6cf;
+background-image: url("background.jpg");
+}
+#out {
+color: #210504;
+font-size: 20px;
+background-color: rgba(72,255,72,0.4);
 }
 #header {
-background-color: red;
+background-color: rgba(0,255,0,0.4);
 text-align: center;
 }
 #middle {
-background-color: grey;
+background-color: rgba(72,72,72,0.6);
 text-align: center;
 color: white;
 }
@@ -27,6 +32,13 @@ h2 {
 color: blue;
 }
 #icons {
-background-color: blue;
+background-color: rgba(0,255,0,0.4);
 text-align: center;
+}
+button {
+border: none;
+background-color: rgba(80,50,255,0.8);
+}
+button:hover {
+background-color: rgba(120,100,255,0.8);
 }

@@ -2,7 +2,6 @@
 <html>
 <head>
 <link rel="shortcut icon" href="https://keshuook.github.io/favicon.ico" type="image/x-icon">
-<link rel="icon" href="https://keshuook.github.io/favicon.ico" type="image/x-icon">
 <title>passwordmaker</title>
 <link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -22,8 +21,11 @@
 <button type="button" onclick="document.getElementById('show').style.display='block'">two step genrate</button>
 <a id="show" style="display:none" href="">are you sure</a>
 </div>
+<br>
+<div id="out">
+</div>
 <script>
-var spam = new Array("p@ssword","1ho0die","z3dmaker","#ellopeople","schoold@ys",
+var pass = new Array("p@ssword","1ho0die","z3dmaker","#ellopeople","schoold@ys",
 "p!@noes are awesome","3lectronics","r@ndom4","c@psl0ck","f!r3trucks",
 "l@ptops&re&copy00l","&copyo0lpeople","#otdog","z3ebr@crowsing","password",
 "$o0pt#ickens","longro@d","@llisgo0d","number-","ko0lEr$"
@@ -32,7 +34,7 @@ var x;
 x = Math.floor(Math.random() * 20);
 var y;
 y = Math.floor(Math.random() * 9998 + 1);
-document.write(spam[x]+y+"<br>");
+document.getElementById('out').innerHTML += pass[x]+y+"<br>";
 
 </script>
 </body>

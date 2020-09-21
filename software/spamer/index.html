@@ -1,7 +1,7 @@
 <HTMLDOCTYPE!>
 <html>
 <head>
-<title>spamer</title>
+<title>spammer</title>
 <link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
@@ -13,11 +13,14 @@
 <a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
 <p id="demo"></p>
 <div id="header">
-<h1>spamer</h1>
+<h1>spammer</h1>
 </div>
 <div id="middle">
 <button type="button" onclick="document.getElementById('show').style.display='block'">two step genrate</button>
 <a id="show" style="display:none" href="">are you sure</a>
+</div>
+<br>
+<div id="out">
 </div>
 <script>
 var spam = new Array("hi","can you take a look at this"
@@ -34,7 +37,7 @@ var spam = new Array("hi","can you take a look at this"
 var x;
 for (i=0;i<20;i++){
 x = Math.floor(Math.random() * 18);
-document.write(spam[x]+"<br>");
+document.getElementById('out').innerHTML += (spam[x]+"<br>");
 }
 </script>
 </body>
