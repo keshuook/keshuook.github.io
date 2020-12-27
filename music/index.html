@@ -1,9 +1,11 @@
-<HTMLDOCTYPE!>
+<!DOCTYPE html>
 <html>
 <head>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <title>music</title>
 <link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
+<link rel="stylesheet" type="text/css" href="player.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 </head>
@@ -15,29 +17,41 @@
 <a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
 <div id="header">
 <h1>music</h1>
-  <p>you can use these songs as long as you say you did not make it. it is fine if you do not credit me. if you make a remix you must credit me also.</p>
+  <p>You can use these songs under the condition of attribution.</p>
 </div>
 <div id="middle">
-<audio controls>
+<div id="player">
+<h1 id="stitle">Thriller</h1>
+<div id="controls">
+<button id="playpause"></button>
+<input type="range" max="100" min="0" value="80" title="volume" id="volume">
+<p id="val">20</p>
+<input type="range" min="0" id="seek" title="seekbar"><br>
+<button onclick="setSong(i-1);">&larr;</button>
+<button onclick="setSong(i+1);">&rarr;</button>
+</div>
+</div>
+<div id="songs">
+<audio id="thriller">
   <source src="thriller.mp3">
   </audio>
-  <audio controls>
-  <source src="videogaming.mp3">
+  <audio id="retro">
+  <source src="retro.mp3">
     </audio>
-    <audio controls>
-  <source src="bestook.mp3">
+    <audio id="footsteps">
+  <source src="footsteps.mp3">
 </audio>
-<audio controls>
+<audio id="chiller">
   <source src="Chiller.ogg">
 </audio>
-  <hr>
-  <h2>Ringtone</h2>
-  <audio controls>
+  <audio id="ringtone1">
   <source src="Ringtone.ogg">
 </audio>
-<audio controls>
+<audio id="ringtone2">
   <source src="ringtone2.ogg">
 </audio>
 </div>
+</div>
+<script src="player.js"></script>
 </body>
 </html>
