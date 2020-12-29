@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Keshuook's Synth</title>
+<link rel="stylesheet" href="../synth%20lead/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<button id="defocus" style="position: absolute;top: -400px;"></button>
+<div id="hint">
+Hover over items
+</div>
+<div id="synth">
+<div id="controls">
+<button onclick="sound.play();" onmouseenter="hint('play');">▶</button>
+<button onclick="sound.stop();" onmouseenter="hint('pause');">⏸</button>
+</div>
+<div id="knob">
+<h3>Controls</h3>
+<input type="range" value="440" min="220" max="880" id="freq" onmousemove="hint('frequency: '+this.value)" ondblclick="fineTune(this,'number');">
+<input type="range" value="400" min="0" max="1000" id="atk" onmousemove="hint('attack: '+this.value/1000)" ondblclick="fineTune(this,'number');">
+<input type="range" value="400" min="0" max="1000" id="rel" onmousemove="hint('release: '+this.value/1000)" ondblclick="fineTune(this,'number');">
+<input type="range" value="400" min="0" max="4000" id="dec" onmousemove="hint('decay: '+this.value+'ms')" ondblclick="fineTune(this,'number');">
+<input type="checkbox" id="infdec" onmousemove="hint('infinite decay: '+this.checked)">
+<select id="wave">
+<option>sine</option>
+<option>square</option>
+<option>triangle</option>
+<option>sawtooth</option>
+</select>
+</div>
+<div id="reverb">
+<h3>Reverb</h3>
+<input id="onrev" type="checkbox" onmousemove="hint('reverb: '+this.checked);">
+<input id="revrev" type="checkbox" onmousemove="hint('reverb reverse: '+this.checked);">
+<input type="range" id="revmix" value="500" max="1000" onmousemove="hint('reverb mix: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="revdec" value="1" max="3000" onmousemove="hint('reverb decay: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="revti" value="1" max="3000" onmousemove="hint('reverb time: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<div id="distortion">
+<h3>Distortion</h3>
+<input id="ondis" type="checkbox" onmousemove="hint('distortion: '+this.checked);">
+<input type="range" id="disgain" value="1" max="1000" onmousemove="hint('distortion gain: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<div id="quadrafuzz">
+<h3>Quadrafuzz</h3>
+<input id="onqf" type="checkbox" onmousemove="hint('quadrafuzz: '+this.checked);">
+<input type="range" id="qfmix" value="1" max="1000" onmousemove="hint('quadrafuzz mix: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="qflg" value="1" max="1000" onmousemove="hint('quadrafuzz low gain: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="qfmlg" value="1" max="1000" onmousemove="hint('quadrafuzz mid-low gain: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="qfmhg" value="1" max="1000" onmousemove="hint('quadrafuzz mid-high gain: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="qfhg" value="1" max="1000" onmousemove="hint('quadrafuzz high gain: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<div id="whitenoise">
+<h3>WhiteNoise</h3>
+<input id="onwn" type="checkbox" onmousemove="hint('whitenoise: '+this.checked);">
+<input type="range" id="wngain" value="1" max="1000" onmousemove="hint('whitenoise gain: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<div id="volume">
+<h3>Basic</h3>
+<input type="range" id="volg" value="1000" max="1000" onmousemove="hint('volume: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="volp" value="500" max="1000" onmousemove="hint('pan: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<div id="compressor">
+<h3>compressor</h3>
+<input id="oncom" type="checkbox" onmousemove="hint('compressor: '+this.checked);">
+<input type="range" id="comt" max="0" min="-100" value="0" onmousemove="hint('compressor threshold: '+this.value);" ondblclick="fineTune(this,'number');">
+<input type="range" id="comk" value="0" max="40" onmousemove="hint('compressor knee: '+this.value);" ondblclick="fineTune(this,'number');">
+<input type="range" id="comra" value="0" max="20" onmousemove="hint('compressor ratio: '+this.value);" ondblclick="fineTune(this,'number');">
+<input type="range" id="comr" value="0" max="1000" onmousemove="hint('compressor release: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="coma" value="0" max="1000" onmousemove="hint('compressor attack: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<div id="flanger">
+<h3>Flanger</h3>
+<input id="onfla" type="checkbox" onmousemove="hint('compressor: '+this.checked);">
+<input type="range" id="flati" value="0" max="1000" onmousemove="hint('Flanger time: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="flasp" value="0" max="1000" onmousemove="hint('Flanger speed: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="flade" value="0" max="1000" onmousemove="hint('Flanger depth: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="flafe" value="0" max="1000" onmousemove="hint('Flanger feedback: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+<input type="range" id="flami" value="0" max="1000" onmousemove="hint('Flanger mix: '+this.value/1000);" ondblclick="fineTune(this,'number');">
+</div>
+<center>
+<div id="keys">
+</div>
+</center>
+</div>
+<script src="pizzicato.min.js"></script>
+<script src="../synth%20lead/script.js"></script>
+</body>
+</html>

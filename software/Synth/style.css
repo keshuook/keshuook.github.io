@@ -1,0 +1,142 @@
+input[type="range"] {
+	transform: rotateZ(-90deg);
+	position: absolute;
+}
+#freq, #revmix, #qfmix, #volg, #comt, #flati {
+	left: -20px;
+}
+#atk, #revdec, #qflg, #volp, #comt, #flasp {
+	left: 0;
+}
+#rel, #revti, #qfmlg, #comra, #flade {
+	left: 20px;
+}
+#dec, #qfmhg, #comr, #flafe {
+	left: 40px;
+}
+#qfhg, #coma, #flami {
+	left: 60px;
+}
+#wave {
+	position: absolute;
+	left: 120px;
+}
+#revrev {
+	position: relative;
+	left: -5px;
+}
+#controls {
+	top: 50%;
+    left: 50%;
+	position: absolute;
+    transform: translate(-50%, -50%);
+}
+#knob {
+	top: 20%;
+    left: 10%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#reverb {
+	top: 60%;
+    right: 30%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#distortion {
+	top: 60%;
+    left: 10%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#quadrafuzz {
+	top: 60%;
+    right: 15%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#whitenoise {
+	top: 60%;
+    left: 30%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#volume {
+	top: 20%;
+    left: 30%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#compressor {
+	top: 20%;
+    right: 35%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+#flanger {
+	top: 20%;
+    right: 15%;
+	position: absolute;
+    transform: translate(-40%, -20%);
+}
+h3 {
+	position: absolute;
+	top: -100px;
+	left: 40px;
+}
+#hint {
+	background-color: #ffff00;
+	width: 25%;
+	height: 120%;
+	font-size: 20px;
+}
+#keys {
+	height: 140px;
+	overflow-x: auto;
+	white-space: nowrap;
+	position: relative;
+}
+.whitenote {
+	box-shadow: 0 4px 4px 0 #888,0 4px 4px 0 #888;
+	border: none;
+	background-color: #fff;
+	height: 120px;
+	padding: 12px;
+	border-radius: 4px 4px 10px 10px;
+}
+.whitenote:hover {
+	box-shadow: 0 4px 4px 0 #444,0 4px 4px 0 #444;
+	background-color: #ffff00;
+}
+.whitenote:focus {
+	box-shadow: none;
+	background-color: #ffff66;
+}
+.blacknote {
+	box-shadow: 0 6px 6px 0 #888, 0 6px 6px 0 #888;
+	border-radius: 4px 4px 10px 10px;
+	position: absolute;
+	border: none;
+	background-color: #000;
+	color: #fff;
+	height: 80px;
+	position: relative;
+	top: -20px;
+}
+.blacknote:hover {
+	box-shadow: 0 6px 6px 0 #444,0 6px 6px 0 #444;
+	background-color: #ffff00;
+	color: #000;
+}
+.blacknote:focus {
+	color: #000;
+	box-shadow: none;
+	background-color: #ffff66;
+}
+.no-select {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select:none;
+	user-select:none;
+	-o-user-select:none;
+}
