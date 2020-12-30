@@ -254,10 +254,14 @@ function help(){
 			overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>Hover over various controls and you can see what they are for in the yellow box.<p>";
 			overlay.appendChild(btn);
 		}else if(i == 1){
-			overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>If you double click the sliders, you can fine tune the slider in the popup that apears.<p>";
+			overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>If you double click the sliders, you can finetune the slider in the popup that appears.<p>";
+			overlay.appendChild(btn);
+		}else if(i == 2){
+			overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>You can save the state of the various controls in a .ssf file (synth state file) using the file save option. You can later load it back in using the file load option.<p>";
 			overlay.appendChild(btn);
 			this.innerHTML = "Close";
-		}else{
+		}
+		else{
 			overlay.remove();
 		}
 		i++;
