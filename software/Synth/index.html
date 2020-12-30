@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Keshuook's Synth</title>
+<title id="title">Welcome to Keshuook's Synth</title>
 <link rel="stylesheet" href="style.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<h1 id="tit">Keshuook's Synth</h1>
+<div id="menu">
+<div id="fmen">
+<button>File</button>
+<div id="fmens">
+<button onclick="download();">Save</button><br>
+<button onclick="load();">Load</button>
+</div>
+</div>
+<button id="help" onclick="help();">Help</button>
+</div>
 <button id="defocus" style="position: absolute;top: -400px;"></button>
+<br>
 <div id="hint">
 Hover over items
 </div>
@@ -16,7 +28,7 @@ Hover over items
 <button onclick="sound.stop();" onmouseenter="hint('pause');">⏸</button>
 </div>
 <div id="knob">
-<h3>Controls</h3>
+<h3>Envelope</h3>
 <input type="range" value="440" min="220" max="880" id="freq" onmousemove="hint('frequency: '+this.value)" ondblclick="fineTune(this,'number');">
 <input type="range" value="400" min="0" max="1000" id="atk" onmousemove="hint('attack: '+this.value/1000)" ondblclick="fineTune(this,'number');">
 <input type="range" value="400" min="0" max="1000" id="rel" onmousemove="hint('release: '+this.value/1000)" ondblclick="fineTune(this,'number');">
@@ -62,7 +74,7 @@ Hover over items
 <input type="range" id="volp" value="500" max="1000" onmousemove="hint('pan: '+this.value/1000);" ondblclick="fineTune(this,'number');">
 </div>
 <div id="compressor">
-<h3>compressor</h3>
+<h3>Compressor</h3>
 <input id="oncom" type="checkbox" onmousemove="hint('compressor: '+this.checked);">
 <input type="range" id="comt" max="0" min="-100" value="0" onmousemove="hint('compressor threshold: '+this.value);" ondblclick="fineTune(this,'number');">
 <input type="range" id="comk" value="0" max="40" onmousemove="hint('compressor knee: '+this.value);" ondblclick="fineTune(this,'number');">

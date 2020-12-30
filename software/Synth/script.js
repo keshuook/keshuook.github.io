@@ -144,48 +144,48 @@ document.getElementById('wave').addEventListener("change",function(){
 		document.write("Error please reload the page.");
 	}
 });
-document.getElementById('onrev').addEventListener("change",function(){
+document.getElementById('onrev').onchange = function(){
 	if(this.checked){
 		sound.addEffect(reverb);
 	}else{
 		sound.removeEffect(reverb);
 	}
-});
-document.getElementById('ondis').addEventListener("change",function(){
+}
+document.getElementById('ondis').onchange = function(){
 	if(this.checked){
 		sound.addEffect(distortion);
 	}else{
 		sound.removeEffect(distortion);
 	}
-});
-document.getElementById('onqf').addEventListener("change",function(){
+}
+document.getElementById('onqf').onchange = function(){
 	if(this.checked){
 		sound.addEffect(quadrafuzz);
 	}else{
 		sound.removeEffect(quadrafuzz);
 	}
-});
-document.getElementById('onwn').addEventListener("change",function(){
+}
+document.getElementById('onwn').onchange = function(){
 	if(this.checked){
 		sound.addSound(whiteNoise);
 	}else{
 		sound.removeSound(whiteNoise);
 	}
-});
-document.getElementById('oncom').addEventListener("change",function(){
+}
+document.getElementById('oncom').onchange = function(){
 	if(this.checked){
 		sound.addEffect(compressor);
 	}else{
 		sound.removeEffect(compressor);
 	}
-});
-document.getElementById('onfla').addEventListener("change",function(){
+}
+document.getElementById('onfla').onchange = function(){
 	if(this.checked){
 		sound.addEffect(flanger);
 	}else{
 		sound.removeEffect(flanger);
 	}
-});
+}
 
 function hint(str){
 	document.getElementById('hint').innerHTML = str;
@@ -238,4 +238,77 @@ keys.style.top = window.innerHeight - 200 + "px";
 
 function freqCompute(freq){
 	return (troot**(freq-49))*document.getElementById('freq').value;
+}
+function help(){
+	var overlay = document.createElement("DIV");
+	overlay.style = "width: 100%;height: 100%;position: absolute;left: 0;top: 0;background-color: rgba(0,0,0,0.65);color: #fff;font-size: 24px;";
+	var btn = document.createElement("BUTTON");
+	btn.innerHTML = "Next";
+	btn.style = "border: none;right: 160px;top: 420px;position: absolute;font-size: 48px;"
+	overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>Adjust the various controls by dragging the scrollbars and checking the checkboxes. After adjusting the controls to your liking, play the keyboard. Alternatively, you can hit the play button to play the default note.<p>";
+	overlay.appendChild(btn);
+	document.body.appendChild(overlay);
+	var i = 0;
+	btn.onclick = function(){
+		if(i == 0){
+			overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>Hover over various controls and you can see what they are for in the yellow box.<p>";
+			overlay.appendChild(btn);
+		}else if(i == 1){
+			overlay.innerHTML = "<p style='position: absolute;left: 40px;top: 30%;'>If you double click the sliders, you can fine tune the slider in the popup that apears.<p>";
+			overlay.appendChild(btn);
+			this.innerHTML = "Close";
+		}else{
+			overlay.remove();
+		}
+		i++;
+	}
+}
+function download(){
+	var a = document.createElement("A");
+	a.download = "song.ssf";
+	var r = document.getElementsByTagName("input");
+	var d = "";
+	for(var i = 0;i < r.length;i++){
+		if(r[i].type == "checkbox"){
+			d += r[i].checked+",";
+		}else{
+			d += r[i].value+",";
+		}
+	}
+	a.href = "data:text/plain;charset=utf-8,"+d+document.getElementById("wave").value;
+	a.click();
+	a.remove();
+}
+var re;
+function load(){
+	var input,e;
+	const reader = new FileReader();
+	var f = document.createElement("INPUT");
+	f.type = "file";
+	f.click();
+	f.onchange = function(ev) {
+		reader.onload =	function(ev){
+			re = event.target.result;
+				var r = document.getElementsByTagName("input");
+				var i2 = 0,d = "";
+				for(var i = 0;i < re.length;i++){
+					if(re.charAt(i) == ","){
+						if(d == "true" || d == "false"){
+							r[i2].checked = (d == 'true');
+							if(i2 != 4 && i2 != 6){
+								r[i2].onchange();
+							}
+						}else{
+							r[i2].value = d;
+						}
+						d = "";
+						i2++;
+					}else{
+						d += re.charAt(i);
+					}
+				}
+				document.getElementById("wave").value = d;
+		}
+		reader.readAsText(event.target.files[0])
+	}
 }

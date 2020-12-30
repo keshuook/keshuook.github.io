@@ -2,10 +2,21 @@ input[type="range"] {
 	transform: rotateZ(-90deg);
 	position: absolute;
 }
+input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+}
+#menu button {
+	background-color: #4caf50;
+	color: #fff;
+	border: 0;
+	font-size: 20px;
+	width: 70px;
+}
 #freq, #revmix, #qfmix, #volg, #comt, #flati {
 	left: -20px;
 }
-#atk, #revdec, #qflg, #volp, #comt, #flasp {
+#atk, #revdec, #qflg, #volp, #comk, #flasp {
 	left: 0;
 }
 #rel, #revti, #qfmlg, #comra, #flade {
@@ -21,18 +32,18 @@ input[type="range"] {
 	position: absolute;
 	left: 120px;
 }
-#revrev {
+#revrev, #onrev {
 	position: relative;
-	left: -5px;
+	left: -25px;
 }
 #controls {
-	top: 50%;
+	top: 40%;
     left: 50%;
 	position: absolute;
     transform: translate(-50%, -50%);
 }
 #knob {
-	top: 20%;
+	top: 30%;
     left: 10%;
 	position: absolute;
     transform: translate(-40%, -20%);
@@ -62,19 +73,19 @@ input[type="range"] {
     transform: translate(-40%, -20%);
 }
 #volume {
-	top: 20%;
+	top: 30%;
     left: 30%;
 	position: absolute;
     transform: translate(-40%, -20%);
 }
 #compressor {
-	top: 20%;
+	top: 30%;
     right: 35%;
 	position: absolute;
     transform: translate(-40%, -20%);
 }
 #flanger {
-	top: 20%;
+	top: 30%;
     right: 15%;
 	position: absolute;
     transform: translate(-40%, -20%);
@@ -88,7 +99,10 @@ h3 {
 	background-color: #ffff00;
 	width: 25%;
 	height: 120%;
-	font-size: 20px;
+	font-size: 30px;
+	position: relative;
+	left: 80px;
+	top: 30px;
 }
 #keys {
 	height: 140px;
@@ -139,4 +153,31 @@ h3 {
 	-ms-user-select:none;
 	user-select:none;
 	-o-user-select:none;
+}
+#tit {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: papyrus, Arial, Helvetica, sans-serif;
+}
+button:focus, input:focus {
+	outline: none;
+}
+#fmens {
+	position: absolute;
+	display: none;
+}
+#fmen{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#fmen:hover #fmens {
+	display: block;
+}
+#help {
+	position: absolute;
+	left: 70px;
+	top: 0;
 }
