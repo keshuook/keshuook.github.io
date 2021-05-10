@@ -1,5 +1,5 @@
 var p = true,d = 0,i = 0;
-var songs = ["footsteps","chiller","retro","thriller","ringtone1","ringtone2"];
+var songs = ["hyper","footsteps","chiller","retro","thriller","ringtone1","ringtone2"];
 var songname = "ring1";
 document.getElementById("playpause").onclick = function(){
 	this.classList.toggle("pause");
