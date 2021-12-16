@@ -1,0 +1,49 @@
+body {
+    background-color: #c5c5c5;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    background-color: #404040;
+    color: #fff;
+    transition: 100ms;
+    padding: 5px;
+}
+button:hover {
+    background-color: #606060;
+    color: #eee;
+}
+#choose-word {
+    top: 40%;
+    width: 40%;
+    text-align: center;
+}
+#show-word-button {
+    position: absolute;
+    top: 20%;
+    height: 27px;
+    right: 8vw;
+}
+#choose-word-input {
+    height: 25px;
+    left: 15vw;
+    top: 20%;
+    position: absolute;
+}
+#start-game {
+    position: absolute;
+    left: 80%;
+    top: 80%;
+}
+div#choose-word {
+    background-color: #eee;
+    height: 175px;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+input {
+    border: none;
+}
+:root {
+    --frog-color: #4d4b06;
+}

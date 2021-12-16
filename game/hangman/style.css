@@ -1,0 +1,78 @@
+#choose-word {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+#frog {
+    width: 15vh;
+    height: 30vh;
+    left: 20%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: var(--frog-color);
+    border-radius: 70px / 160px 120px 290px 280px;
+}
+.eye {
+    --size: 2.3vh;
+    background-color: #000;
+    border-radius: 100%;
+    width: 4vh;
+    top: 1vh;
+    height: 4vh;
+    position: absolute;
+}
+.leg {
+    --size: -7vh;
+    width: 12vh;
+    bottom: -1vh;
+    height: 8vh;
+    border-radius: 20px / 5px 6px 2px 5px;
+    position: absolute;
+    background-color: #000;
+}
+#shoe {
+    border-radius: 180px / 10px 410px 610px 10px;
+    width: 24vh;
+    height: 13vh;
+    top: 20vh;
+    left: 24vh;
+    position: absolute;
+    background-color: #000;
+    animation: shoe-hower 2s infinite;
+}
+@keyframes shoe-hower {
+    0%{top: calc(var(--shoe-hower) + 20vh);}
+    10%{top: calc(var(--shoe-hower) + 19vh);}
+    40%{top: calc(var(--shoe-hower) + 21vh);}
+    50%{top: calc(var(--shoe-hower) + 19vh);}
+    70%{top: calc(var(--shoe-hower) + 21vh);}
+    90%{top: calc(var(--shoe-hower) + 19vh);}
+    100%{top: calc(var(--shoe-hower) + 20vh);}
+}
+#shoe-top {
+    border-radius: 180px /310px 800px 480px 300px;
+    width: 12vh;
+    height: 60vh;
+    left: -0.01vh;
+    top: -50vh;
+    position: absolute;
+    background-color: #000;
+}
+.word-char {
+    width: 6vh;
+    height: 6vh;
+    border-bottom: #000 solid 5px;
+    position: absolute;
+    font-size: 6vh;
+    text-align: center;
+}
+#words {
+    left: 72vh;
+    position: absolute;
+}
+#remainder {
+    font-size: 36px;
+    color: #000;
+}

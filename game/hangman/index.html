@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hang Man</title>
+    <link rel="stylesheet" href="themes/modern.css">
+</head>
+<body>
+    <noscript>Your browser does not seem to suport javascript. This will cause the site to not function properly.</noscript>
+    <style id="height-fix">
+        :root {
+            --shoe-hower: 0vh;
+        }
+    </style>
+    <div id="remainder">
+        10
+    </div>
+    <div id="game-container">
+        <div id="words"></div>
+        <div id="animation">
+            <div id="shoe">
+                <div id="shoe-top"></div>
+            </div>
+            <div id="frog">
+                <div class="eye" style="right: var(--size)"></div>
+                <div class="eye" style="left: var(--size)"></div>
+                <div class="leg" style="left: var(--size)"></div>
+                <div class="leg" style="right: var(--size)"></div>
+            </div>
+        </div>
+    </div>
+    <div id="choose-word">
+        <form>
+            <input type="hidden" name="word_submit">
+            <input id="choose-word-input" placeholder="word" type="password"><br>
+            <button id="start-game">Start</button>
+        </form>
+        <button id="show-word-button">Show Word</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
