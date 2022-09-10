@@ -1,0 +1,52 @@
+<HTMLDOCTYPE!>
+<html>
+<head>
+<style>
+body {
+background-color: #e6e6e6;
+text-align: right;
+}
+</style>
+<label>chat bot : </label><input type="text" id="binput"><button onclick="binput()">go</button><br>
+<p id="no"></p>
+<script>
+var z = '<hr>';
+function binput() {
+document.getElementById('no').innerHTML = '';
+var binput = document.getElementById('binput').value;
+if (binput == "help" || binput == "Help") {
+z = z + '<br><b>I am an automated chat bot that uses simple language for this website only<br>The commands here work better if you say music on this website and not music<b>'
+document.getElementById('no').innerHTML = z;
+}
+else if (binput == "hello" || binput == "hey" || binput == "Hey" || binput == "Hello" || binput == "How are you?" || binput == "hi" || binput == "Hi") {
+z = z + '<br><b>Hello user <br> I am an automated bot write help for more</b>'
+document.getElementById('no').innerHTML = z;
+}
+else if (binput == "good place to visit" || binput == "Good place to visit" || binput == "good place to visit on website" || binput == "Good place to visit on website" || binput == "good place to visit on this website" || binput == "Good place to visit on this website" || binput == "Software on this website?" || binput == "software on this website?" || binput == "software on this website" || binput == "Software on this website") {
+z = z + '<br><b><a href="https://keshuook.github.io/software/">You can  go here</a></b>'
+document.getElementById('no').innerHTML = z;
+}
+else if (binput == "contact keshuook" || binput == "nicewebsite" || binput == "Contact keshuook" || binput == "contact Keshuook" || binput == "Contact Keshuook" || binput == "I want to contact Keshuook" || binput == "i want to contact Keshuook" || binput == "I want to contact keshuook" || binput == "i want to contact keshuook") {
+z = z + '<br><b><a href="https://keshuook.github.io/comments/">You can  go here</a></b>'
+document.getElementById('no').innerHTML = z;
+}
+else if (binput == "who made this website" || binput == "who made this website?" || binput == "Who made this website" || binput == "Who made this website?") {
+z = z + '<br><b>Keshuook made this website</b>'
+document.getElementById('no').innerHTML = z;
+}
+else if (binput == "are there any games on this site" || binput == "Are there any games on this site" || binput == "Are there any games on this site?" || binput == "are there any games on this site?") {
+z = z + '<br><b>Yes <a href="https://keshuook.github.io/game/">Go here</a>"</b>'
+document.getElementById('no').innerHTML = z;
+}
+else if (binput == "Is there any music on this website" || binput == "is there any music on this website?" || binput == "is there any music on this website" || binput == "Is there any music on this website?" || binput == "music on this website") {
+z = z + '<br><b>Yes <a href="https://keshuook.github.io/music/">Go here</a></b>'
+document.getElementById('no').innerHTML = z;
+}
+else {
+z = z + '<br><b>I did not get that</b>'
+document.getElementById('no').innerHTML = z;
+}
+}
+</script>
+</body>
+</html>
