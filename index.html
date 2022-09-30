@@ -1,73 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="BZCuIs9NI0MJ4IDTsB676XMxQ0EIAKMoqQl3FgmaPo4" />
-<title>Keshuook</title>
-<link rel="stylesheet" href="style.css">
-<script src="json.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keshuook | Official Website</title>
+    <meta name="google-site-verification" content="BZCuIs9NI0MJ4IDTsB676XMxQ0EIAKMoqQl3FgmaPo4">
+    <link rel="stylesheet" href="style.css">
+    <noscript><link rel="stylesheet" href="src/no-script.css"></noscript>
 </head>
 <body>
-<div id="iframe" class="para">
-</div>
-<div id="slideshow" class="para">
-<div id="title">
-<h1>Keshuook's website</h1>
-</div>
-<br><br><br><br><br><br>
-<div id="icons">
-<a href="#">Top</a><br>
-<a href="#About">About Me</a><br>
-<a href="#Contact">Contact Me</a><br>
-<a href="#Blog">My Blog</a><br>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br>
-<h1 id="down" style="text-align:center;"></h1>
-</div>
-<a name="About">
-<div id="top-nav">
-<button onclick="leave(json.link1);"><i class="material-icons">home</i><br>home</button>
-<button onclick="leave(json.link2);"><i class="material-icons">shop</i><br>music</button>
-<button onclick="leave(json.link3);"><i class="material-icons">android</i><br>software</button>
-<button onclick="leave(json.link4);"><i class="material-icons">email</i><br>contact</button>
-<button onclick="leave(json.link5);"><i class="material-icons">play_arrow</i><br>games</button>
-</div>
-<br>
-<center><h1>About me</h1></center>
-<div id="para1" class="para">
-<div class="txt">
-I am a living being who is specializing in the art of computer programming.<br>
-I am currently learning javascript, a scripting language used in this website.<br>
-Currently my favourite quote is: "Two things are infinite: the universe and
-human stupidity; and I'm not sure about the universe." - Albert Einstein<br>
-Likes : Dogs, music & sunglasses<br>
-</div>
-</div>
-<a name="Contact">
-<center><h1>Contact me</h1></center>
-<div>
-</div>
-<div id="para2" class="para">
-<div class="txt">
-You can contact me by going <a href="comments" class="a">here</a>.<br>
-But I suggest viewing my whole website<br>
-and then doing that.<br>
-</div>
-</div>
-<a name="blog">
-<center><h1>My blog</h1></center>
-<div id="para3" class="para">
-<p class="txt">You can go to my blog by clicking <a href="blog" class="a">here</a></p>
-</div>
-<div id="footer">
-Website made by keshuook<br>
-liked this website?<br>
-<button id="like" onclick="feed('like');">👍</button>
-<button id="dis i like" onclick="feed('dis i like');">👎</button>
-<br><p>Your response does not reach keshuook</p>
-</div>
-<script src="script.js"></script>
+    <div id="top-nav" style="display: none;">
+        <a selected>Home</a>
+        <a href="/music">Music</a>
+        <a href="/software">Software</a>
+        <a href="/contact">Contact</a>
+        <a href="/games">Games</a>
+    </div>
+    <div id="header" class="has-bg-img">
+        <div id="text">
+            <h1>Keshuook</h1>
+        </div>
+    </div>
+    <div id="nav">
+        <div id="scroll-tell">Scroll Down</div>
+        <a selected href="#search">Home</a>
+        <a href="/music">Music</a>
+        <a href="/software">Software</a>
+        <a href="/contact">Contact</a>
+        <a href="/games">Games</a>
+    </div>
+    <a name="search"></a>
+    <div id="search">
+        <form>
+            <input placeholder="Start typing to explore..." autocomplete="off" type="text" name="search" id="search-placeholder">
+        </form>
+    </div>
+    <a name="showcase"></a>
+    <div id="works" class="has-bg-img">
+        <div id="show-title"><h1>Showcase</h1></div>
+        <noscript><a href="https://keshuook.github.io/software/pizzeria/"></noscript>
+        <div id="first-card" class="card animate-card" onclick="window.open('https://keshuook.github.io/software/pizzeria/')">
+            <div class="has-bg-img card-img" style="background-image: url('src/pizza.jpg')"></div>
+            <h1>Pizzeria</h1>
+        </div>
+        <noscript></a></noscript>
+        <noscript><a href="https://keshuook.github.io/software/synth/"></noscript>
+        <div class="card animate-card" onclick="window.open('https://keshuook.github.io/software/synth/')">
+            <div class="has-bg-img card-img" style="background-image: url('src/synth.jpg')"></div>
+            <h1>Synth</h1>
+        </div>
+        <noscript></a></noscript>
+        <noscript><a href="https://keshuook.github.io/software/k-track/"></noscript>
+        <div class="card animate-card" onclick="window.open('https://keshuook.github.io/software/k-track/')">
+            <div class="has-bg-img card-img" style="background-image: url('src/k-track.jpg')"></div>
+            <h1>K-Track (ToDo)</h1>
+        </div>
+        <noscript></a></noscript>
+    </div>
+    <a name="music"></a>
+    <div id="music-player">
+        <audio src="https://keshuook.github.io/music/hype.mp3" id="audio"></audio>
+        <canvas id="musical-canvas"></canvas>
+        <div id="music-title"><h1>Music</h1></div>
+        <div id="big-play"></div>
+        <div id="player">
+            <div id="play-button" class="play-state"></div>
+            <progress max="1" value="0" id="time-remaining"></progress>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="credits">
+            <h1>Credits</h1>
+            Header background photo by <a href="https://unsplash.com/@keithmisner?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Keith Misner</a> on <a href="https://unsplash.com/s/photos/background?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br>
+            Showcase background photo by <a href="https://unsplash.com/@mohamadaz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">mohammad alizade</a> on <a href="https://unsplash.com/s/photos/sky-full-of-stars?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            <h1>You have reached the end.</h1>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
