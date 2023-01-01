@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actor Animate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-elements" style="display: none;">
+        <video class="input-video" width="0" height="0"></video>
+        <canvas class="output-video"></canvas>
+        <button id="start">Start Recording</button>
+        <a id="download" download="recording.webm">Download Recording</a><br>
+    </div>
+    <form onsubmit="formSubmitted(event);">
+        <h3>Input Device Selection</h3>
+        <label>Select Your Input Video Device</label>
+        <select name="audio">
+            <option disabled>Select a Video Device</option>
+        </select><br>
+        <label>Select Your Input Audio Device</label>
+        <select name="video">
+            <option disabled>Select a Audio Device</option>
+        </select><hr>
+        <h3>Animate Options Selection</h3>
+        <label>Select Your Character</label>
+        <select name="character">
+            <option disabled>Select a Character</option>
+            <option value="0">Hologram</option>
+            <option value="1">Dog</option>
+        </select><hr>
+        <input type="submit" value="Confirm Settings">
+    </form>
+    <script src="lib/@mediapipe/face_mesh/face_mesh.js"></script>
+    <script src="script.js" type="module"></script>
+</body>
+</html>
