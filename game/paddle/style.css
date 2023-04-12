@@ -1,0 +1,104 @@
+@keyframes giftcome {
+	0%{top: 20%}
+	100%{top: 50%;}
+}
+@font-face {
+	font-family: DancingScript;
+	src: url("DancingScript-Regular.ttf");
+}
+@font-face {
+	font-family: OpenSans;
+	src: url("OpenSans-Regular.ttf");
+}
+body{
+	overflow: hidden;
+}
+p {
+	font-family: OpenSans;
+}
+h1 {
+	font-family: DancingScript;
+}
+#giftbox {
+	cursor: pointer;
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: #4caf50;
+	transform: translate(-50%,-50%);
+	animation: giftcome 1s cubic-bezier(0.35, 0.7, 0.1, 1.2);
+	box-shadow: 0 20px 20px 0 rgba(0,0,0,0.4);
+}
+#giftbox h1 {
+	text-align: center;
+	position: relative;
+	color: #fff;
+	width: 300px;
+}
+.red {
+	background-color: #f23a3a;
+	height: 280px;
+	top: 10px;
+	width: 50px;
+	position: absolute;
+}
+.topwrap {
+	width: 50px;
+	height: 125px;
+	background-color: #0000ff;
+	border-radius: 60px;
+	position: absolute;
+	top: -70px;
+}
+#canvas {
+	background-color: #eee;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#FPS {
+	color: #000;
+	font-size: 24px;
+	background-color: #fff;
+	z-index: 20;
+	position: absolute;
+	left: 5px;
+	top: 0;
+}
+#score {
+	color: #000;
+	font-size: 24px;
+	background-color: #fff;
+	z-index: 20;
+	position: absolute;
+	right: 5px;
+	top: 0;
+}
+button {
+	background-color: #4caf50;
+	border: none;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	color: #fff;
+	font-family: OpenSans;
+	font-size: 24px;
+}
+#pausebtn {
+	top: 50%;
+	width: 320px;
+	height: 80px;
+}
+button:hover {
+	background-color: #6ecf72;
+}
+#red {
+	font-weight: bold;
+	font-size: 24px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+}
