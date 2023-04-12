@@ -1,43 +1,63 @@
-<HTMLDOCTYPE!>
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/x-icon" href="keshuook.github.io/favicon.ico">
 <title>softwares</title>
-<link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
+<link rel="stylesheet" type="text/css" href="../keshuookstyle.css">
 </head>
 <body>
-<div id="icons"><a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
-<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
-<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
-<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
-<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
+<div id="icons"><a href="https://keshuook.github.io"><button tabindex="-1"><i class="fa fa-home"></i><br><p style="font-size: 10px;">Home</p></button></a>
+<a href="https://keshuook.github.io/music"><button tabindex="-1"><i class="fa fa-music"></i><br><p style="font-size: 10px;">Music</p></button></a>
+<a href="https://keshuook.github.io/software"><button tabindex="-1"><i class="fa fa-code"></i><br><p style="font-size: 10px;">Software</p></button></a>
+<a href="https://keshuook.github.io/comments"><button tabindex="-1"><i class="fa fa-comments"></i><br><p style="font-size: 10px;">Comments</p></button></a>
+<a href="https://keshuook.github.io/game"><button tabindex="-1"><i class="fa fa-gamepad"></i><br><p style="font-size: 10px;">Game</p></button></a></div>
+<div id="sidebar-left">
 <div id="header">
-<h1>software</h1>
+<h1>Software</h1>
 </div>
+</div>
+<div id="sidebar-right">
 <div id="middle">
-<fieldset style="color: #000;">
-<legend>software</legend>
-<a href="/software/spamer">spammer</a><br>
-<a href="/software/paswordmaker">password maker</a><br>
-<a href="/software/websitemaker">websitemaker</a><br>
-<a href="/software/blogmaker">blogmaker</a><br>
-<a href="https://keshuook.github.io/featured">featured(covid19)</a><br>
-<a href="https://keshuook.github.io/software/chat">chat</a><br>
-<a href="https://keshuook.github.io/software/pizzeria">pizzeria</a><br>
-<a href="https://keshuook.github.io/software/synth/">synth</a><br>
+<fieldset>
+<legend>Software</legend>
+<a href="/software/spamer">Spammer</a><br>
+<a href="/software/paswordmaker">Password Maker</a><br>
+<a href="/software/websitemaker">Websitemaker</a><br>
+<a href="/software/blogmaker">Blogmaker</a><br>
+<a href="https://keshuook.github.io/featured">COVID-19 Animation</a><br>
+<a href="https://keshuook.github.io/software/chat">Chat</a><br>
+<a href="https://keshuook.github.io/software/pizzeria">Pizzeria</a><br>
+<a href="https://keshuook.github.io/software/synth/">Synth</a><br>
 <a href="https://keshuook.github.io/software/k-track/">K-Track (notes)</a><br>
 <a href="https://keshuook.github.io/software/actor_animate/">Actor Animate</a><br>
+</fieldset><br>
+<fieldset>
+<legend>V-Mail</legend>
+<input id="link" placeholder="Enter Link" type="url" style="width: 40%">
+<button class="blue" id="join"><i class="fa fa-user"></i> Join</button>
+<button class="blue" id="create" style="position: absolute;right: 2vw;"><i class="fa fa-plus"></i> Create</button>
 </fieldset>
-<fieldset style="color: #000;">
-<legend>vmail (a video chat) servers</legend>
-<a href="https://keshuook.github.io/software/vmail/#1">vmail sever1</a><br>
-<a href="https://keshuook.github.io/software/vmail/#2">vmail sever2</a><br>
-<a href="https://keshuook.github.io/software/vmail/#3">vmail sever3</a><br>
-</fieldset>
-  <br>
-  <br>
-  <br>
 </div>
+</div>
+<script>
+    const create = document.getElementById("create");
+    document.getElementById("join").addEventListener("click", () => {
+        const iptElement = document.getElementById("link");
+        if(iptElement.value.startsWith("https://keshuook.github.io/software/vmail/#")) {
+            window.location.href = iptElement.value;
+        }else{
+            create.click();
+        }
+    });
+    create.addEventListener("click", () => {
+        var uuid = "";
+        for(var i = 0;i < 8;i++) {
+            const charInt = Math.floor(Math.random()*25)+65;
+            uuid += String.fromCharCode(charInt);
+        }
+        window.location.href = `https://keshuook.github.io/software/vmail/#${uuid}`;
+    })
+</script>
 </body>
 </html>

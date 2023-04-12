@@ -1,0 +1,91 @@
+canvas {
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+body {
+    overflow: hidden;
+}
+.help-button {
+    top: 1vh;
+    right: 1vw;
+}
+.pause-play-button {
+    top: 1vh;
+    right: 10vh;
+}
+.switch-button {
+    background-color: red;
+    top: 8vh;
+    transition: 150ms;
+    right: 1vw;
+}
+.switch-button:hover {
+    opacity: 0.6;
+    background-color: red;
+}
+.switch-switch {
+    background-color: blue;
+}
+.switch-switch:hover {
+    background-color: blue;
+}
+.pause-play {
+    width: 0;
+    height: 0;
+    border: 2vh solid transparent;
+    border-left: 2vh solid #222;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 150ms;
+}
+.pause-play-switch {
+    width: 1vh;
+    height: 4vh;
+    border: none;
+    border-left: 1vh solid #222;
+    border-right: 1vh solid #222;
+}
+button {
+    position: absolute;
+    width: 7vh;
+    height: 7vh;
+    z-index: 2;
+    font-size: 24px;
+    border-radius: 10px;
+    border: 2px dashed yellow;
+    background-color: #c1e0fb8e;
+    cursor: pointer;
+    transition: 100ms;
+    outline: none;
+}
+button:hover {
+    background-color: #c1e0fb3e;
+}
+.help {
+    background-color: #595044;
+    color: #eee;
+    font-size: 20px;
+    z-index: 5;
+    width: 96%;
+    height: 96%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2%;
+    transition: 250ms;
+}
+.help a {
+    text-decoration: underline;
+    color: #ccc;
+    cursor: pointer;
+}
+.help a:hover {
+    color: #ddd;
+}
+.hide {
+    opacity: 0;
+    z-index: 0;
+}

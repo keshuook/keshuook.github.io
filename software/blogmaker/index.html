@@ -1,29 +1,54 @@
-<title>Blog Maker</title>
-<label>title of blog : </label><input class="ipt"><br>
-<label>text of blog(&nl for new line) : </label><textarea class="ipt"></textarea><br>
-<label>image of blog : </label><input class="ipt" placeholder="Give a link"><br>
-<label>allow dark theme </label><input class="ipt" type="checkbox"><br>
-<label>footer of blog : </label><input class="ipt"><br>
-<button onclick="done();">Done</button>
-<script>
-function done(){
-var ipt = document.getElementsByClassName('ipt');
-var end = "https://keshuook.github.io/software/blog#";
-end += ipt[0].value;
-end += "@#//";
-var x = ipt[1].value.replace(/&nl/g, "&lt;br&gt;");
-end += x;
-end += "@#//";
-end += ipt[2].value;
-end += "@#//";
-if(ipt[3].checked == true){
-end += 1;
-}else{
-end += 0;
-}
-end += "@#//";
-end += ipt[4].value;
-end += "@#//";
-window.open(end);
-}
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../keshuookstyle.css">
+</head>
+<body>
+    <title>Blog Maker</title>
+    <div id="icons"><a href="https://keshuook.github.io"><button tabindex="-1"><i class="fa fa-home"></i><br><p style="font-size: 10px;">Home</p></button></a>
+        <a href="https://keshuook.github.io/music"><button tabindex="-1"><i class="fa fa-music"></i><br><p style="font-size: 10px;">Music</p></button></a>
+        <a href="https://keshuook.github.io/software"><button tabindex="-1"><i class="fa fa-code"></i><br><p style="font-size: 10px;">Software</p></button></a>
+        <a href="https://keshuook.github.io/comments"><button tabindex="-1"><i class="fa fa-comments"></i><br><p style="font-size: 10px;">Comments</p></button></a>
+        <a href="https://keshuook.github.io/game"><button tabindex="-1"><i class="fa fa-gamepad"></i><br><p style="font-size: 10px;">Game</p></button></a></div>
+        <div id="sidebar-left">
+        <div id="header">
+        <h1>Blog Maker</h1>
+        </div>
+    </div>
+    <div id="sidebar-right">
+    <div id="middle">
+    <label>Title of Blog : </label><input class="ipt"><br>
+    <label>Rext of Blog(&nl for new line) : </label><textarea class="ipt"></textarea><br>
+    <label>Image of Blog : </label><input class="ipt" placeholder="Give a link"><br>
+    <label>Allow Dark Theme </label><input class="ipt" type="checkbox"><br>
+    <label>Footer of Blog : </label><input class="ipt"><br>
+    <button onclick="done();" class="blue">Done</button>
+    </div>
+    </div>
+    <script>
+    function done(){
+    var ipt = document.getElementsByClassName('ipt');
+    var end = "https://keshuook.github.io/software/blog#";
+    end += ipt[0].value;
+    end += "@#//";
+    var x = ipt[1].value.replace(/&nl/g, "&lt;br&gt;");
+    end += x;
+    end += "@#//";
+    end += ipt[2].value;
+    end += "@#//";
+    if(ipt[3].checked == true){
+    end += 1;
+    }else{
+    end += 0;
+    }
+    end += "@#//";
+    end += ipt[4].value;
+    end += "@#//";
+    window.open(end);
+    }
+    </script>
+</body>
+</html>

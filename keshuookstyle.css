@@ -1,44 +1,161 @@
-@media only screen and (max-width:800px) {
-body, #header, #middle, a, h2, #icons {
-width: 80%;
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+:root {
+    --background: #2b3142;
+    --background-hover: #4a5471;
+    --color: #fff;
+    --color-hover: #fcb8a7;
+    --color-red: #E85F5C;
+    --color-green: #45CB85;
+    --color-blue: #33A1FD;
+    --shadow-very-light: 0 0.2vh 0.2vh #2b314283, 0 0.2vh 0.2vh 0 #fcb8a783;
+    --shadow-light: 0 1vh 1vh #2b314283, 0 1vh 1vh 0 #fcb8a783;
+    --shadow-heavy: 0 2vh 2vh #2b314283, 0 2vh 2vh 0 #fcb8a783;
 }
+@font-face {
+    font-family: raleway-thin;
+    src: url("src/Raleway-Thin.ttf");
 }
-@media only screen and (max-width:500px) {
-body, #header, #middle, a, h2, #icons {
-width: 100%;
-}
+@font-face {
+    font-family: raleway-medium;
+    src: url("src/Raleway-Medium.ttf");
 }
 body {
-background-image: url("background.jpg");
+    overflow-x: hidden;
+    background-color: var(--color-hover);
 }
-#out {
-color: #210504;
-font-size: 20px;
-background-color: rgba(72,255,72,0.4);
+#sidebar-left, #sidebar-right {
+    font-family: raleway-thin;
+    position: absolute;
+    background-color: var(--background);
+    top: 15vh;
+}
+#sidebar-left:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    display: block;
+    background-image: url("./src/header.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(2px);
 }
 #header {
-background-color: rgba(0,255,0,0.4);
-text-align: center;
+    font-family: raleway-medium;
+    background-color: var(--background);
+    text-align: center;
+    color: var(--color);
+    padding: 1vh 0px;
+    margin: 1vh 0;
+    height: 10vh;
+    box-shadow: var(--shadow-very-light);
 }
 #middle {
-background-color: rgba(72,72,72,0.6);
-text-align: center;
-color: white;
+    background-color: var(--background);
+    box-shadow: var(--shadow-heavy);
+    padding: 24px 1vw;
+    color: white;
+    margin-bottom: 2px;
+    font-family: raleway-medium;
+    font-weight: thin;
 }
 a {
-color: white;
+    color: var(--color);
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    color: var(--color-hover);
+}
+legend {
+    font-weight: bold;
+    font-size: 20px;
 }
 h2 {
-color: blue;
+    color: var(--color);
 }
 #icons {
-background-color: rgba(0,255,0,0.4);
-text-align: center;
+    text-align: center;
+}
+#icons button {
+    position: relative;
+    border: none;
+    background-color: var(--background);
+    box-shadow: var(--shadow-very-light);
+    color: var(--color);
+    cursor: pointer;
+    width: 60px;
+    transition: 200ms;
+    border-radius: 5px;
+    font-size: 2.4vh;
+}
+#icons button:hover {
+    background-color: var(--background-hover);
+    color: var(--color-hover);
+    top: -1px;
+}
+.blue {
+    background-color: var(--color-blue);
+    color: var(--color);
+}
+.red {
+    background-color: var(--color-red);
+    color: var(--background);
+}
+.green {
+    background-color: var(--color-green);
+    color: var(--background);
+}
+button, input {
+    border: none;
+    padding: 5px;
 }
 button {
-border: none;
-background-color: rgba(80,50,255,0.8);
+    cursor: pointer;
+    width: 100px;
 }
-button:hover {
-background-color: rgba(120,100,255,0.8);
+button:hover, input[type="submit"]:hover {
+    filter: saturate(20%);
+}
+textarea {
+    width: 100%;
+    resize: vertical;
+    height: 200px;
+}
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+}
+@media only screen and (min-width: 900px) {
+    #sidebar-left {
+        left: 1vw;
+        width: 18vw;
+        height: 84vh;
+        position: fixed;
+    }
+    #sidebar-left::before { 
+        left: 1vw;
+        width: 18vw;
+        height: 84vh;
+    }
+    #sidebar-right {
+        left: 21vw;
+        width: 78vw;
+    }
+}
+@media only screen and (max-width: 900px) {
+    #sidebar-left {
+        width: 98vw;
+        left: 1vw;
+        position: absolute;
+        height: 0;
+    }
+    #sidebar-right {
+        top: 30vh;
+        width: 98vw;
+        left: 1vw;
+    }
 }

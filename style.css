@@ -16,6 +16,15 @@
 h1, h2, h3, h4, h5, h6 {
     font-family: raleway-thin;
 }
+a {
+    color: var(--background)
+}
+a:hover {
+    color: var(--background-hover);
+}
+a:visited {
+    color: none;
+}
 ::-webkit-scrollbar {width: 0;}
 html {
     scrollbar-width: none;

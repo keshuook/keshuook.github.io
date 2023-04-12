@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heli-Land</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="help">
+        <h2>Objective:</h2> 
+        Ride the helicopter and land it at the heliport. Make sure it is a soft landing to earn your birthday cake. (Yes, I know it’s not so straight forward). 
+        <ul>
+        <li>Use the <font style="background-color: grey;"><b>Up Arrow</b></font> key to increase your upward and forward velocity and altitude.</li>
+        <li>Use the <font style="background-color: grey;"><b>Right Arrow</b></font> key to increase your forward velocity. You can also use it to make a controlled descent for a soft landing.</li>
+        <li>The heliport is at a distance of 4000 units from the starting point. Note you cannot go back, so for your survival it is crucial to land there.</li>
+        <li>Pay attention to warnings.</li>
+        </ul>
+        <b>BONUS TIP:</b> Fly at an altitude of 1000 units till the heliport approaching warning appears and then make a controlled descent to the brown ground (and not the sea).<hr>
+        <a onclick="document.getElementsByClassName('help')[0].classList.add('hide');">Close</a>
+    </div>
+    <button class="help-button" onclick="document.getElementsByClassName('help')[0].classList.remove('hide');">?</button>
+    <button class="pause-play-button">
+        <div class="pause-play pause-play-switch"></div>
+    </button>
+    <button class="switch-button"></button>
+    <script src="script.js"></script>
+</body>
+</html>

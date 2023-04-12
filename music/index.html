@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<title>music</title>
-<link rel="stylesheet" type="text/css" href="https://keshuook.github.io/keshuookstyle.css">
+<title>Music</title>
+<link rel="stylesheet" type="text/css" href="../keshuookstyle.css">
 <link rel="stylesheet" type="text/css" href="player.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 </head>
-<body>
-<div id="icons"><a href="https://keshuook.github.io"><button><i class="material-icons">home</i><br><p style="font-size: 10px;">home</p></button></a>
-<a href="https://keshuook.github.io/music"><button><i class="material-icons">shop</i><br><p style="font-size: 10px;">music</p></button></a>
-<a href="https://keshuook.github.io/software"><button><i class="material-icons">android</i><br><p style="font-size: 10px;">software</p></button></a>
-<a href="https://keshuook.github.io/comments"><button><i class="material-icons">email</i><br><p style="font-size: 10px;">comments</p></button></a>
-<a href="https://keshuook.github.io/game"><button><i class="material-icons">play_arrow</i><br><p style="font-size: 10px;">game</p></button></a></div>
+<body><div id="icons"><a href="https://keshuook.github.io"><button tabindex="-1"><i class="fa fa-home"></i><br><p style="font-size: 10px;">Home</p></button></a>
+<a href="https://keshuook.github.io/music"><button tabindex="-1"><i class="fa fa-music"></i><br><p style="font-size: 10px;">Music</p></button></a>
+<a href="https://keshuook.github.io/software"><button tabindex="-1"><i class="fa fa-code"></i><br><p style="font-size: 10px;">Software</p></button></a>
+<a href="https://keshuook.github.io/comments"><button tabindex="-1"><i class="fa fa-comments"></i><br><p style="font-size: 10px;">Comments</p></button></a>
+<a href="https://keshuook.github.io/game"><button tabindex="-1"><i class="fa fa-gamepad"></i><br><p style="font-size: 10px;">Game</p></button></a></div>
+<div id="sidebar-left">
 <div id="header">
-<h1>music</h1>
+<h1>Music</h1>
 </div>
+</div>
+<div id="sidebar-right">
 <div id="middle">
 <div id="player">
-<h1 id="stitle">Loading...</h1>
-<div id="controls">
-<button id="playpause"></button>
-<input type="range" max="100" min="0" value="80" title="volume" id="volume">
-<p id="val">20</p>
-<input type="range" min="0" id="seek" title="seekbar"><br>
-<button onclick="setSong(i-1);">&larr;</button>
-<button onclick="setSong(i+1);">&rarr;</button>
-</div>
+  <h1 id="song-tit">Hype</h1>
+  <canvas height="120"></canvas>
+  <input id="bar" type="range" min="0" max="1000000" value="0">
+  <br>
+  <button class="blue" id="playbtn"><span id="play-pause" class="play"></span></button>
+  <button class="blue" id="volumebtn"><i id="volume" class="fa fa-volume-high"></i></button>
+  <input id="volume-range" type="range" max="100" min="0" value="80">
 </div>
 <div id="songs">
-<audio id="hyper">
+<audio data-name="Hype">
   <source src="hype.mp3">
 </audio>
-<audio id="thriller">
-  <source src="thriller.mp3">
-</audio>
-<audio id="retro">
-  <source src="retro.mp3">
-</audio>
-<audio id="footsteps">
+<audio data-name="Footsteps">
   <source src="footsteps.mp3">
 </audio>
-<audio id="chiller">
+<audio data-name="The Thriller">
+  <source src="thriller.mp3">
+</audio>
+<audio data-name="Retro">
+  <source src="retro.mp3">
+</audio>
+<audio data-name="Chiller">
   <source src="Chiller.ogg">
 </audio>
-<audio id="ringtone1">
+<audio data-name="Ringtone I">
   <source src="Ringtone.ogg">
 </audio>
-<audio id="ringtone2">
+<audio data-name="Ringtone II">
   <source src="ringtone2.ogg">
 </audio>
+</div><br>
+<fieldset>
+<div id="songList">
+  <a onclick="setSong(0)">Hype</a><br>
+  <a onclick="setSong(1)">Footsteps</a><br>
+  <a onclick="setSong(2)">The Thriller</a><br>
+  <a onclick="setSong(3)">Retro</a><br>
+  <a onclick="setSong(4)">Chiller</a><br>
+  <a onclick="setSong(5)">Ringtone I</a><br>
+  <a onclick="setSong(6)">Ringtone II</a><br>
+</div>
+</fieldset>
 </div>
 </div>
 <script src="player.js"></script>

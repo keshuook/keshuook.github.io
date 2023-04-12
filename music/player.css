@@ -1,84 +1,47 @@
-#playpause {
+#bar {
+	width: 100%;
+	height: 10px;
+	background-color: var(--color);
+}
+#player button {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+}
+#playbtn {
+	position: relative;
+	top: -5px;
+}
+#play-pause {
+	margin: 0;
+	padding: 0;
 	position: absolute;
+	top: 10px;
+	transition: 100ms border-width ease;
+}
+.play {
+	left: 15px;
+	border-radius: 5px;
+	border-style: solid;
+	border: 10px solid transparent;
+	border-left-color: var(--color);
+}
+.pause {
+	left: 10px;
+	width: 10px;
 	box-sizing: border-box;
 	height: 20px;
-	border-color: transparent transparent transparent #eec;
-	transition: 100ms border-width ease;
-	cursor: pointer;
-	border-style: solid;
-	border-width: 10px 0 10px 20px;
-}
-#playpause:hover{
-	border-color: transparent transparent transparent #ddb;	
-}
-#playpause.pause {
-	border-style: double;
+	border: none;
+	border-color: transparent;
 	border-width: 0 0 0 20px;
+	border-style: double;
+	border-left-color: var(--color);
 }
-#playpause:focus {
-	outline: none;
-}
-#volume, #seek {
-	-webkit-appearance: none;
-	height: 15px;
-	border-radius: 5px;
-	background: #d3d3d3;
-	outline: none;
-	opacity: 0.9;
-	-webkit-transition: 0.2s;
-	transition: opacity 0.2s;
-	position: relative;
-}
-#volume {
-	left: 100px;
-	transform: rotate(-90deg);
-}
-#volume:hover ,#seek:hover {
-	opacity: 1;
-}
-#volume::-webkit-slider-thumb, #seek::-webkit-slider-thumb {
-	-webkit-appearance: none;
-	appearance: none;
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background: #4CAF50;
-	cursor: pointer;
-}
-#volume::-moz-range-thumb, #seek::-moz-range-thumb {
-	width: 25px;
-	height: 25px;
-	border-radius: 50%;
-	background: #4CAF50;
-	cursor: pointer;
-}
-#val {
-	opacity: 0;
-	width: 40px;
-	position: relative;
-	left: 55%;
-	background-color: black;
-	color: #fff;
-	transition: 350ms opacity linear;
-	border-radius: 30px;
-}
-#middle {
-	height: 240px;
-}
-#player {
-	border: solid 3px #000;
-	height: 220px;
-	width: 45%;
-}
-#suggested {
+#volume-range {
 	float: right;
-	width: 35%;
-	overflow-y: scroll;
-	border: solid 3px #000;
-	position: relative;
-	top: -220px;
-	height: 220px;
+	margin-top: 5px;
 }
-#middle button {
-	font-size: 24px;
+#volumebtn {
+	float: right;
+	margin-left: 20px;
 }
