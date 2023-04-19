@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Volume Tracker</title>
+<style>
+.pids-wrapper{
+  width: 100%;
+}
+.pid{
+  width: calc(10% - 15px);
+  height: 50px;
+  display: inline-block;
+  margin: 5px;
+}
+#console {
+	position: absolute;
+	width: 100%;
+	height: 60%;
+	overflow: hidden;
+	top: 70px;
+	left: 0;
+	background-color: #000;
+	color: #eee;
+	font-size: 24px;
+}
+#highest {
+	position: absolute;
+	bottom: 20px;
+	font-size: 24px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+span {
+	color: red;
+}
+button {
+	position: absolute;
+	font-size: 24px;
+	background-color: red;
+	bottom: 20px;
+	left: 20px;
+	border: none;
+	color: #eee;
+}
+button:hover {
+	background-color: #eee;
+	color: red;
+}
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="pids-wrapper">
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+  <div class="pid"></div>
+</div>
+<div id="console">
+
+</div>
+<div id="highest">
+
+</div>
+<button onclick="loudest = 0;">Reset</button>
+<script>
+var loudest = 0;
+function colorPids(vol) {
+  var all_pids = document.getElementsByClassName('pid');
+  for(var i = 0;i < 10;i++){
+	all_pids[i].style.backgroundColor = "#eeeeee";
+  }
+  for(var i = 0;i < Math.round(vol/10);i++){
+	all_pids[i].style.backgroundColor = "#ffa64d";
+  }
+}
+navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+.then(function(stream) {
+  audioContext = new AudioContext();
+  analyser = audioContext.createAnalyser();
+  microphone = audioContext.createMediaStreamSource(stream);
+  javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
+
+  analyser.smoothingTimeConstant = 0.8;
+  analyser.fftSize = 1024;
+
+  microphone.connect(analyser);
+  analyser.connect(javascriptNode);
+  javascriptNode.connect(audioContext.destination);
+  javascriptNode.onaudioprocess = function() {
+      var array = new Uint8Array(analyser.frequencyBinCount);
+      analyser.getByteFrequencyData(array);
+      var values = 0;
+
+      var length = array.length;
+      for (var i = 0; i < length; i++) {
+        values += (array[i]);
+      }
+
+      var average = values / length;
+	colorPids(average);
+	if(Math.round(average)*10 > loudest){
+		loudest = Math.round(average)*10;
+		document.querySelector("#highest").innerHTML = "Loudest: <span>"+loudest+"</span>";
+	}
+	document.querySelector("#console").innerHTML += Math.round(average)*10+"<br>";
+	document.querySelector("#console").scrollTo(0,document.querySelector("#console").scrollHeight);
+  }
+  })
+  .catch(function(err) {
+    /* handle the error */
+});
+setInterval(function(){
+	document.querySelector("#console").innerHTML = document.querySelector("#console").innerHTML.slice(-120);
+},750);
+</script>
+</body>
+</html>

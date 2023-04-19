@@ -85,8 +85,8 @@ function music() {
 	Array.from(sources).forEach(source => {
 		const esource = context.createMediaElementSource(source);
 		esource.connect(analyser);
-		analyser.connect(context.destination);
 	});
+	analyser.connect(context.destination);
 
 	analyser.fftSize = 256;
 	const dataArr = new Uint8Array(analyser.frequencyBinCount);
