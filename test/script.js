@@ -28,16 +28,38 @@ document.body.appendChild(renderer.domElement); // Adds the canvas to the body t
 function rotate(axis, angle, object) {
     const animationInterval = setInterval(() => {
         switch(axis) {
+            case 0:
+                rotateByX(object, angle/10);
+                break;
             case 1:
-                object.rotateY(angle/10);
+                rotateByY(object, angle/10);
                 break;
             case 2:
-                object.rotateZ(angle/10);
+                rotateByZ(object, angle/10);
         }
     }, 16);
     setTimeout(() => {
         clearInterval(animationInterval);
     }, 160);
+}
+var balaRotation = {
+    x: 0,
+    y: -Math.PI/2,
+    z: 0
+}
+function rotateByX(object, angle) {
+    var quaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), angle);
+    object.applyQuaternion(quaternion);
+}
+
+function rotateByY(object, angle) {
+    var quaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), angle);
+    object.applyQuaternion(quaternion);
+}
+
+function rotateByZ(object, angle) {
+    var quaternion = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(-1, 0, 0), angle);
+    object.applyQuaternion(quaternion);
 }
 
 // Add bala to the scene
@@ -63,6 +85,12 @@ loader.load("bala.glb", (object) => {
     document.getElementById("right-button").addEventListener("click", () => {
         rotate(1, Math.PI/12, balaObject);
     });
+    document.getElementById("rotate-right").addEventListener('click', () => {
+        rotate(0, -Math.PI/12, balaObject);
+    });
+    document.getElementById("rotate-left").addEventListener('click', () => {
+        rotate(0, Math.PI/12, balaObject);
+    })
 });
 
 function render() {
