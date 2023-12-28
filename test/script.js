@@ -1,5 +1,5 @@
-import * as THREE from './three.module.js'
-import { GLTFLoader } from './GLTFLoader.js';
+import * as THREE from './lib/three.module.js'
+import { GLTFLoader } from './lib/GLTFLoader.js';
 
 // Basic initialisation steps
 // const scene = new THREE.Scene();
@@ -18,28 +18,50 @@ window.addEventListener("resize", () => {
 
 document.body.appendChild(renderer.domElement); // Adds the canvas to the body tag.
 
+// Rotation animation
+/**
+ * 
+ * @param {number} axis 1 for y and 2 for z
+ * @param {number} angle in radians
+ * @param {THREE.Object3D}
+ */
+function rotate(axis, angle, object) {
+    const animationInterval = setInterval(() => {
+        switch(axis) {
+            case 1:
+                object.rotateY(angle/10);
+                break;
+            case 2:
+                object.rotateZ(angle/10);
+        }
+    }, 16);
+    setTimeout(() => {
+        clearInterval(animationInterval);
+    }, 160);
+}
+
 // Add bala to the scene
 const loader = new GLTFLoader();
 loader.load("bala.glb", (object) => {
     console.log(object);
     scene = object.scene;
     const balaObject = scene.getObjectByName("Sphere");
-    camera.position.z = 2;
+    camera.position.z = 5;
     camera.lookAt(0, 0, 0);
     const light = new THREE.AmbientLight( 0xffffff ); // light to see bala
     scene.add(light);
     balaObject.rotateY(-Math.PI/2)
     document.getElementById("up-button").addEventListener("click", () => {
-        balaObject.rotateZ(Math.PI/4);
+        rotate(2, Math.PI/12, balaObject);
     });
     document.getElementById("down-button").addEventListener("click", () => {
-        balaObject.rotateZ(-Math.PI/4);
+        rotate(2, -Math.PI/12, balaObject);
     });
     document.getElementById("left-button").addEventListener("click", () => {
-        balaObject.rotateY(-Math.PI/4);
+        rotate(1, -Math.PI/12, balaObject);
     });
     document.getElementById("right-button").addEventListener("click", () => {
-        balaObject.rotateY(Math.PI/4);
+        rotate(1, Math.PI/12, balaObject);
     });
 });
 
