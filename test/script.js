@@ -62,6 +62,24 @@ function rotateByZ(object, angle) {
     object.applyQuaternion(quaternion);
 }
 
+// Adjust the light source.
+const INTENSITY = 10; // Adjust the intensity here
+
+const lightSource1 = new THREE.PointLight(0xffffff, INTENSITY);
+lightSource1.position.x = -1.82;
+lightSource1.position.y = 3.07;
+lightSource1.position.z = -4.73;
+
+const lightSource2 = new THREE.PointLight(0xffffff, INTENSITY);
+lightSource2.position.x = 4.48;
+lightSource2.position.y = -3.17;
+lightSource2.position.z = 2.04;
+
+const lightSource3 = new THREE.PointLight(0xffffff, INTENSITY);
+lightSource3.position.x = -1.82;
+lightSource3.position.y = 6.93;
+lightSource3.position.z = 1.89;
+
 // Add bala to the scene
 const loader = new GLTFLoader();
 loader.load("bala.glb", (object) => {
@@ -70,6 +88,11 @@ loader.load("bala.glb", (object) => {
     const balaObject = scene.getObjectByName("Sphere");
     camera.position.z = 5;
     camera.lookAt(0, 0, 0);
+
+    scene.add(lightSource1);
+    scene.add(lightSource2);
+    scene.add(lightSource3);
+    
     const light = new THREE.AmbientLight( 0xffffff ); // light to see bala
     scene.add(light);
     balaObject.rotateY(-Math.PI/2)
