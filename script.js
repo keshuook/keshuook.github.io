@@ -1,8 +1,43 @@
 // Setup
 
+var phone = false;
+
+function size() {
+    if(window.innerWidth <= 800) {
+        for(a of document.getElementById("nav").getElementsByTagName("a")) {
+            a.style.display = "none";
+        }
+        for(a of document.getElementById("top-nav").getElementsByTagName("a")) {
+            a.style.display = "none";
+        }
+        phone = true;
+    }else{
+        phone = false;
+        for(a of document.getElementById("nav").getElementsByTagName("a")) {
+            a.style.display = "";
+        }
+        for(a of document.getElementById("top-nav").getElementsByTagName("a")) {
+            a.style.display = "";
+        }
+    }
+}
+
+// Hamburger menu
+const hbme = document.getElementById("hamburger");
+hbme.addEventListener("click", () => {
+    document.getElementById("links").classList.toggle("close");
+    hbme.classList.toggle("close");
+    for(line of hbme.getElementsByTagName("div")) {
+        line.classList.toggle("close");
+    }
+})
+
 window.addEventListener('load', () => {
     window.scrollTo({top: 0});
-})
+    size();
+});
+
+window.addEventListener("resize", size);
 
 // Code for scrolling down
 
@@ -11,6 +46,8 @@ const sche = document.getElementById("search");
 const shce = document.getElementById("works");
 const mspe = document.getElementById("music-player");
 const crde = document.getElementsByClassName("card");
+
+mspe.style.top = "450vh";
 
 window.addEventListener('scroll', () => {
     document.getElementById("text").style.opacity = 1-(window.scrollY/window.innerHeight);
@@ -34,29 +71,25 @@ window.addEventListener('scroll', () => {
     if(window.scrollY > window.innerHeight*2){
         shce.style.position = "fixed";
         shce.style.zIndex = -1;
-        shce.style.top = 0;
+        shce.style.top = `${2*window.innerHeight - window.scrollY}px`;
     }else{
         shce.style.position = "absolute";
         shce.style.zIndex = 0;
         shce.style.top = "200vh";
     }
-    if(window.scrollY > window.innerHeight*3){
+    if(window.scrollY > window.innerHeight*(phone ? 4.5 : 3.69)){
         mspe.style.position = "fixed";
         mspe.style.zIndex = -1;
         mspe.style.top = 0;
     }else{
         mspe.style.position = "absolute";
         mspe.style.zIndex = 0;
-        mspe.style.top = "300vh";
+        mspe.style.top = phone ? "450vh" : "369vh";
     }
-    if(window.scrollY > window.innerHeight*1.4){
-        crde[0].classList.remove('animate-card');
-    }
-    if(window.scrollY > window.innerHeight*1.55){
-        crde[1].classList.remove("animate-card");
-    }
-    if(window.scrollY > window.innerHeight*1.7){
-        crde[2].classList.remove("animate-card");
+    for(var i = 0;i < crde.length;i++) {
+        if(window.scrollY > window.innerHeight*(1.4+(0.15*i))) {
+            crde[i].classList.remove('animate-card');
+        }
     }
     if(window.scrollY < window.innerHeight*1.2){
         for(el of crde){
@@ -231,15 +264,15 @@ var audioinit = false;
 var paused = true;
 
 element.addEventListener('pause', () => {
-    pbe.classList.toggle("play-state");
-    pbe.classList.toggle("pause-state");
+    pbe.classList.add("play-state");
+    pbe.classList.remove("pause-state");
     setTimeout(() => {
         paused = false;
     }, 700);
 });
 element.addEventListener('play', () => {
-    pbe.classList.toggle("play-state");
-    pbe.classList.toggle("pause-state");
+    pbe.classList.remove("play-state");
+    pbe.classList.add("pause-state");
     paused = false;
 })
 window.addEventListener('click', () => {
