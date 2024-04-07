@@ -25,8 +25,20 @@ window.addEventListener("load", () => {
 
         const commentsForm = document.getElementById("form").cloneNode(true);
         commentsForm.querySelector("input[type='hidden']").value = blogPath;
-        commentsForm.getElementsByTagName("form")[0].addEventListener("submit", () => {
-            
+        // Form submission
+        const form = commentsForm.getElementsByTagName("form")[0];
+        form.addEventListener("submit", (ev) => {
+            ev.preventDefault();
+            var submissionString = "https://docs.google.com/forms/u/1/d/e/1FAIpQLSc-VUQCfheeo0UMi4Zwg1p-3ooaXlYA78IYZHoau8NPaqmiMA/formResponse?"
+            const formData = new FormData(form);
+            window.formData = formData;
+            for(const entry of formData.entries()) {
+                submissionString += `${entry[0]}=${entry[1]}&`
+            }
+            submissionString = submissionString.slice(0, -1);
+
+            const win = window.open(submissionString);
+            window.win = win;
             commentsForm.getElementsByTagName("textarea")[0].value = "";
             for(element of commentsForm.getElementsByTagName("input")) {
                 if(element.type == "hidden" || element.type == "submit") continue;
@@ -51,4 +63,4 @@ window.addEventListener("scroll", () => {
         navigationElement.classList.remove("sticky");
         navigationElement.classList.add("w3-yellow");
     }
-})
+});
