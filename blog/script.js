@@ -1,5 +1,5 @@
 const blogsPath = "./posts/"
-const listOfBlogs = ["post2.encrypted", "post1.encrypted"];
+const listOfBlogs = ["post3.encrypted", "post2.encrypted", "post1.encrypted"];
 const aboutPath = "./about.encrypted"
 
 window.addEventListener("load", () => {
