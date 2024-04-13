@@ -1,5 +1,5 @@
 const blogsPath = "./posts/"
-const listOfBlogs = ["post3.encrypted", "post2.encrypted", "post1.encrypted"];
+const listOfBlogs = ["post4.encrypted", "post3.encrypted", "post2.encrypted", "post1.encrypted"];
 const aboutPath = "./about.encrypted"
 
 window.addEventListener("load", () => {
@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
         document.getElementById("about").innerHTML = decryptedString;
     })();
 
-    listOfBlogs.forEach(async blogPath => {
+    Promise.all(listOfBlogs.map(async blogPath => {
         const request = await fetch(blogsPath.concat(blogPath));
         const encryptedData = await request.text();
         const decryptedData = new CryptoJS.AES.decrypt(encryptedData, key);
@@ -47,10 +47,12 @@ window.addEventListener("load", () => {
         });
         commentsForm.style.display = "";
         blogElement.appendChild(commentsForm);
-
-        const entries = document.getElementById("entries");
-        entries.appendChild(blogElement);
-    });
+        return blogElement;
+    })).then(blogElements => {
+        blogElements.forEach(blogElement => {
+            document.getElementById("entries").appendChild(blogElement);
+        });
+    })
 });
 
 // Sticky Navigation
