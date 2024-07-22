@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Controller</title>
+    <style>
+        button {
+            width: 50vw;
+            height: 20vh;
+            padding: 0;
+            position: absolute;
+            border: none;
+            font-size: 20px;
+        }
+        .r1 {
+            top: 0;
+        }
+        .r2 {
+            top: 20vh;
+        }
+        .r3 {
+            top: 40vh;
+        }
+        .c1 {
+            left: 0;
+        }
+        .c2 {
+            right: 0;
+        }
+        #info {
+            position: absolute;
+            bottom: 0;
+            height: 10vh;
+            width: 100%;
+            left: 0;
+            background-color: #ACF7C1;
+            font-size: 30px;
+            text-align: center;
+        }
+        #stop {
+            background-color: #EF7674;
+            width: 20vw;
+            height: 10vh;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <audio src="assets/loud explosion.mp3"></audio>
+    <audio src="assets/faraway-exlposion.mp3"></audio>
+    <audio src="assets/war-background.mp3"></audio>
+    <audio src="assets/machine-gun.mp3"></audio>
+    <audio src="assets/rifle.mp3"></audio>
+    <audio src="assets/siren.mp3"></audio>
+    <script>
+        var update,tout;
+        function stop() {
+            Array.from(document.getElementsByTagName("audio")).forEach(clip => {
+                clip.pause();
+                clip.currentTime = 0;
+            });
+            clearTimeout(tout);
+            clearInterval(update);
+            document.getElementById("info").innerHTML = "";
+        }
+        function play(sound) {
+            stop();
+            const clip = document.getElementsByTagName("audio")[sound];
+            update = setInterval(() => {
+                document.getElementById("info").innerHTML = `${clip.currentTime.toFixed(0)}/${clip.duration.toFixed(0)}`;
+            }, 30);
+            tout = setTimeout(() => {
+                clearInterval(update);
+                document.getElementById("info").innerHTML = "";
+            }, clip.duration*1000);
+            clip.play();
+        }
+    </script>
+    <button class="r1 c1" style="background-color: #AA4465;" onclick="play(0)">Loud Explosion</button>
+    <button class="r1 c2" style="background-color: #A8BA9A;" onclick="play(1)">Faraway Explosion</button>
+    <button class="r2 c1" style="background-color: #BFD1E5;" onclick="play(2)">War Background</button>
+    <button class="r2 c2" style="background-color: #808080;" onclick="play(3)">Machine Gun</button>
+    <button class="r3 c1" style="background-color: #9883E5;" onclick="play(4)">Rifle</button>
+    <button class="r3 c2" style="background-color: #F07167;" onclick="play(5)">Siren</button>
+    <div id="info"></div>
+    <button id="stop" onclick="stop();">STOP</button>
+</body>
+</html>
