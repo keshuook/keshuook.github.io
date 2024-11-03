@@ -5,6 +5,40 @@
 <link rel="icon" type="image/x-icon" href="keshuook.github.io/favicon.ico">
 <title>Software</title>
 <link rel="stylesheet" type="text/css" href="../keshuookstyle.css">
+<style>
+    @media only screen and (max-width: 650px) {
+        .git-card {
+            display: block;
+            width: 80%;
+            margin-bottom: 5%;
+            margin-left: 10%;
+            height: 30vh;
+        }
+    }
+    @media only screen and (min-width: 650px) {
+        .git-card {
+            float: left;
+            margin-left: 5%;
+            width: 25%;
+            height: 35vh;
+        }
+    }
+    .git-card {
+        position: relative;
+        border: solid 2px var(--color-blue);
+        border-radius: 8px;
+        text-align: center;
+        padding: 5px;
+    }
+    .git-btn {
+        position: absolute;
+        left: 5%;
+        bottom: 5%;
+        width: 90%;
+        border-radius: 5px;
+    }
+
+</style>
 </head>
 <body>
 <div id="icons"><a href="https://keshuook.github.io"><button tabindex="-1"><i class="fa fa-home"></i><br><p style="font-size: 10px;">Home</p></button></a>
@@ -30,6 +64,25 @@
 <a href="/software/paswordmaker">Password Maker</a><br>
 <a href="/software/spamer">Spammer</a><br>
 </fieldset><br>
+<fieldset>
+<legend>Desktop Apps</legend>
+<div class="git-card">
+<h2>sKheduler</h2>
+<p>A windows app written in python to manage reminders.</p>
+<a href="https://github.com/keshuook/sKheduler" target="_blank"><button class="green git-btn">View Project <i class="fa-brands fa-github"></i></button></a>
+</div>
+<div class="git-card">
+<h2>skribbl-clone</h2>
+<p>A clone of skribbl.io made in java.</p>
+<a href="https://github.com/keshuook/skribbl-clone" target="_blank"><button class="green git-btn">View Project <i class="fa-brands fa-github"></i></button></a>
+</div>
+<div class="git-card">
+<h2>time-inverter-prototype</h2>
+<p>A game created in java in which you can travel backward through time.</p>
+<a href="https://github.com/keshuook/time-inverter-prototype" target="_blank"><button class="green git-btn">View Project <i class="fa-brands fa-github"></i></button></a>
+</div>
+</fieldset>
+<br>
 <fieldset>
 <legend>Software (For Desktop Only)</legend>
 <a href="https://keshuook.github.io/software/synth/">Synth</a><br>
