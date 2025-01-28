@@ -1,5 +1,5 @@
 const blogsPath = "./posts/"
-const listOfBlogs = ["post20.encrypted", "post19.encrypted", "post18.encrypted", "post17.encrypted", "post16.encrypted", "post15.encrypted", "post14.encrypted", "post13.encrypted", "post12.encrypted", "post11.encrypted", "post10.encrypted", "post9.encrypted", "post8.encrypted", "post7.encrypted", "post6.encrypted", "post5.encrypted", "post4.encrypted", "post3.encrypted", "post2.encrypted", "post1.encrypted"];
+const listOfBlogs = ["post21.encrypted", "post20.encrypted", "post19.encrypted", "post18.encrypted", "post17.encrypted", "post16.encrypted", "post15.encrypted", "post14.encrypted", "post13.encrypted", "post12.encrypted", "post11.encrypted", "post10.encrypted", "post9.encrypted", "post8.encrypted", "post7.encrypted", "post6.encrypted", "post5.encrypted", "post4.encrypted", "post3.encrypted", "post2.encrypted", "post1.encrypted"];
 const aboutPath = "./about.encrypted"
 
 window.addEventListener("load", () => {
