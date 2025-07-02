@@ -1,70 +1,91 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Music</title>
-<link rel="stylesheet" type="text/css" href="../keshuookstyle.css">
-<link rel="stylesheet" type="text/css" href="player.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-</head>
-<body><div id="icons"><a href="https://keshuook.github.io"><button tabindex="-1"><i class="fa fa-home"></i><br><p style="font-size: 10px;">Home</p></button></a>
-<a href="https://keshuook.github.io/music"><button tabindex="-1"><i class="fa fa-music"></i><br><p style="font-size: 10px;">Music</p></button></a>
-<a href="https://keshuook.github.io/software"><button tabindex="-1"><i class="fa fa-code"></i><br><p style="font-size: 10px;">Software</p></button></a>
-<a href="https://keshuook.github.io/comments"><button tabindex="-1"><i class="fa fa-comments"></i><br><p style="font-size: 10px;">Contact</p></button></a>
-<a href="https://keshuook.github.io/game"><button tabindex="-1"><i class="fa fa-gamepad"></i><br><p style="font-size: 10px;">Game</p></button></a></div>
-<div id="sidebar-left">
-<div id="header">
-<h1>Music</h1>
-</div>
-</div>
-<div id="sidebar-right">
-<div id="middle">
-<div id="player">
-  <h1 id="song-tit">Hype</h1>
-  <canvas height="120"></canvas>
-  <input id="bar" type="range" min="0" max="1000000" value="0">
-  <br>
-  <button class="blue" id="playbtn"><span id="play-pause" class="play"></span></button>
-  <button class="blue" id="volumebtn"><i id="volume" class="fa fa-volume-high"></i></button>
-  <input id="volume-range" type="range" max="100" min="0" value="80">
-</div>
-<div id="songs">
-<audio data-name="Hype">
-  <source src="hype.mp3">
-</audio>
-<audio data-name="Footsteps">
-  <source src="footsteps.mp3">
-</audio>
-<audio data-name="The Thriller">
-  <source src="thriller.mp3">
-</audio>
-<audio data-name="Retro">
-  <source src="retro.mp3">
-</audio>
-<audio data-name="Chiller">
-  <source src="Chiller.ogg">
-</audio>
-<audio data-name="Ringtone I">
-  <source src="Ringtone.ogg">
-</audio>
-<audio data-name="Ringtone II">
-  <source src="ringtone2.ogg">
-</audio>
-</div><br>
-<fieldset>
-<div id="songList">
-  <a onclick="setSong(0)">Hype</a><br>
-  <a onclick="setSong(1)">Footsteps</a><br>
-  <a onclick="setSong(2)">The Thriller</a><br>
-  <a onclick="setSong(3)">Retro</a><br>
-  <a onclick="setSong(4)">Chiller</a><br>
-  <a onclick="setSong(5)">Ringtone I</a><br>
-  <a onclick="setSong(6)">Ringtone II</a><br>
-</div>
-</fieldset>
-</div>
-</div>
-<script src="player.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="../assets/css/music.css">
+        
+        <title>Music</title>
+        
+        <script src="../assets/scripts/favicon.js"></script>
+    </head>
+    <body>
+        <div id="nav" class="nav-top">
+        <div id="branding">
+            <img src="../favicon.ico" height="40" style="background-color: #ffffff;border-radius: 100%;" />
+            <p>My Music</p>
+        </div>
+        <div id="links">
+            <div id="ham-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#374151" width="48" height="48" viewBox="0 0 48 48">
+                    <rect x="8" y="10" width="32" height="6" rx="3"/>
+                    <rect x="8" y="20" width="32" height="4" rx="2"/> 
+                    <rect x="8" y="28" width="32" height="6" rx="3"/>
+                </svg>
+            </div>
+            <a href="#" class="title-show-turn">Music</a>
+            <a href="../blog/" class="title-show-turn">Blog</a>
+            <a href="../projects/" class="title-show-turn">Projects</a>
+            <a href="../" class="title-show-turn">Home</a>
+        </div>
+    </div>
+    <div class="content">
+        <div id="about-page" class="box">
+            <p>I am a singer and guitarist. I also compose electronic music. You can listen to some of my compositions here.</p>
+        </div>
+        <div id="player" class="box">
+            <h1 id="song-tit">The Spy</h1>
+            <canvas height="120"></canvas>
+            <input id="bar" type="range" min="0" max="1000000" value="0">
+            <br>
+            <button id="playbtn">
+                <img id="play-pause" src="../assets/icons/play.svg"/>
+            </button>
+            <button id="volumebtn">
+                <img id="volume-img" src="../assets/icons/volume-medium.svg"/>
+            </button>
+            <input id="volume-range" type="range" max="100" min="0" value="70"><br>
+            <div id="song-list">
+                <button onclick="setSong(0)" class="active">The Spy</button>
+                <button onclick="setSong(1)">Hype</button>
+                <button onclick="setSong(2)">Hero's Welcome</button>
+                <button onclick="setSong(3)">Retro</button>
+                <button onclick="setSong(4)">Haunted Piano</button>
+                <button onclick="setSong(5)">Footsteps</button>
+                <button onclick="setSong(6)">Forwards</button>
+                <button onclick="setSong(7)">Palindrome</button>
+            </div>
+        </div>
+    </div>
+    <div id="songs">
+        <audio data-name="The Spy">
+            <source src="../assets/music/the-spy.mp3">
+        </audio>
+        <audio data-name="Hype">
+            <source src="../assets/music/hype.mp3">
+        </audio>
+        <audio data-name="Hero's Welcome">
+            <source src="../assets/music/heros-welcome.mp3">
+        </audio>
+        <audio data-name="Retro">
+            <source src="../assets/music/retro.mp3">
+        </audio>
+        <audio data-name="Haunted Piano">
+            <source src="../assets/music/haunted-piano.mp3">
+        </audio>
+        <audio data-name="Footsteps">
+            <source src="../assets/music/footsteps.mp3">
+        </audio>
+        <audio data-name="Forwards">
+            <source src="../assets/music/forwards.mp3">
+        </audio>
+        <audio data-name="Palindrome">
+            <source src="../assets/music/palindrome.mp3">
+        </audio>
+    </div>
+    <script src="player.js"></script>
+    <script src="../assets/scripts/page.js"></script>
+    </body>
 </html>

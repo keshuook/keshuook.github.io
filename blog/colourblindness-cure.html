@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="post.css">
+    <title>Blog</title>
+</head>
+<body>
+    <div id="back-container">
+        <a href="javascript:history.back();" id="back">
+            <svg width="64" height="24">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                <text x="22" y="15" font-weight="bold" font-size="15">Back</text>
+            </svg>
+        </a>
+    </div>
+    <div id="blog-container">
+        <div id="post">
+            <iframe class="banner" src="https://www.youtube.com/embed/t8_xan6TVwo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div id="top">
+                <h1 id="blog-title">How I cured my colour blindness (kinda)</h1>
+                <span>Published on May 22, 2025 by <b>Kailash Prasad</b></span>
+            </div>
+            <div id="content">
+                <p>I am colour-blind. I have always been colour-blind, and I used to think I would always be colour-blind. However, recently, I learnt that there might be a cure for it.</p>
+                <p>It all started when I found an app called “Color Blind Pal”. This app helps its users identify colours by displaying the name of the colour. It also has a filter that increases the contrast between colours. To me, the latter is more useful, however, it is not perfect. Even with the filter, I still can’t pass a colour-blindness test (though it improved my performance).</p>
+                <p>Some people think that colour-blind people see the world in black and white. That’s not what happens in a majority of cases. In most cases, such as mine, a colour-blind patient cannot tell the difference between two colours (like red and green). My case is mild so I only have trouble with similar shades. I don’t find my colour blindness to be a severe impediment in my day-to-day life. However, I did have trouble titrating in school.</p>
+                <p>Taking inspiration from the Color Blind Pal app, I decided to code my own digital filter. To do this, I wrote a program using WebGL (which is a way of using a device’s GPU in a web app) to transform the RGB values of each pixel from the camera input.</p>
+                <p>Like with most digital filters, in my program, I consider the colour of a pixel to be a vector, and its transformation a matrix. I was able to find <a href="https://gist.github.com/Lokno/df7c3bfdc9ad32558bb7" target="_blank">a collection of matrices that simulate colour blindness</a>. To cure my colour blindness, I simply took the inverse of the matrix which simulated my specific condition and used it as the transformation matrix in my filter. You can try it out yourself <a href="https://keshuook.github.io/software/color-blindless/">here</a>.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

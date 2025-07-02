@@ -4,28 +4,178 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../keshuookstyle.css">
+    <title>Blog Maker</title>
+    <style>
+        /* General body styling */
+        body {
+            font-family: 'Inter', sans-serif; /* Using Inter font */
+            background-color: #f0f2f5; /* Light gray background */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Main content container */
+        #content {
+            background-color: #ffffff; /* White background for the form area */
+            padding: 30px;
+            border-radius: 12px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            width: 100%;
+            max-width: 600px; /* Max width for larger screens */
+            box-sizing: border-box;
+        }
+
+        /* Inner container for form elements */
+        #middle {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            gap: 15px; /* Space between form elements */
+        }
+
+        /* Styling for labels */
+        label {
+            font-weight: 600; /* Slightly bolder labels */
+            color: #333333; /* Darker text color */
+            margin-bottom: 5px; /* Space below label before input */
+            display: block; /* Make label take full width by default */
+        }
+
+        /* Styling for all input fields and textarea */
+        .ipt {
+            width: 100%; /* Full width within its container */
+            padding: 12px;
+            border: 1px solid #cccccc; /* Light gray border */
+            border-radius: 8px; /* Rounded corners for inputs */
+            font-size: 16px;
+            box-sizing: border-box; /* Include padding in width */
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for focus */
+            outline: none; /* Remove default outline */
+        }
+
+        .ipt:focus {
+            border-color: #007bff; /* Blue border on focus */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Light blue shadow on focus */
+        }
+
+        /* Specific styling for textarea */
+        textarea.ipt {
+            resize: vertical; /* Allow vertical resizing */
+            min-height: 100px; /* Minimum height for textarea */
+        }
+
+        /* Container for checkbox and its label to put them on the same line */
+        .checkbox-container {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            gap: 10px; /* Space between label and checkbox */
+            margin-bottom: 5px; /* Maintain similar spacing as other labels */
+        }
+
+        .checkbox-container label {
+            margin-bottom: 0; /* Remove bottom margin from label inside this container */
+            display: inline-block; /* Allow label to sit next to checkbox */
+        }
+
+        /* Specific styling for checkbox */
+        input[type="checkbox"].ipt {
+            width: auto; /* Allow checkbox to take its natural width */
+            transform: scale(1.2); /* Slightly larger checkbox */
+            vertical-align: middle; /* Align with text */
+            box-shadow: none; /* Remove shadow for checkbox */
+            margin-left: 0; /* Reset margin as gap handles spacing */
+        }
+
+        /* Styling for the button */
+        button {
+            background-color: #007bff; /* Primary blue color */
+            color: #ffffff; /* White text */
+            padding: 14px 25px;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+            margin-top: 20px; /* Space above the button */
+            align-self: flex-start; /* Align button to the start of the column */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+
+        button:active {
+            background-color: #004085; /* Even darker blue on click */
+            transform: translateY(0); /* Return to original position on click */
+        }
+
+        /* Break tag styling for spacing - removed for checkbox line */
+        br {
+            content: "";
+            display: block;
+            margin-bottom: 5px; /* Add some space for the <br> tags */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #content {
+                padding: 20px;
+            }
+
+            .ipt, button {
+                font-size: 15px;
+                padding: 10px;
+            }
+
+            button {
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            #content {
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            label {
+                font-size: 14px;
+            }
+
+            .ipt {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 10px 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <title>Blog Maker</title>
-    <div id="icons"><a href="https://keshuook.github.io"><button tabindex="-1"><i class="fa fa-home"></i><br><p style="font-size: 10px;">Home</p></button></a>
-        <a href="https://keshuook.github.io/music"><button tabindex="-1"><i class="fa fa-music"></i><br><p style="font-size: 10px;">Music</p></button></a>
-        <a href="https://keshuook.github.io/software"><button tabindex="-1"><i class="fa fa-code"></i><br><p style="font-size: 10px;">Software</p></button></a>
-        <a href="https://keshuook.github.io/comments"><button tabindex="-1"><i class="fa fa-comments"></i><br><p style="font-size: 10px;">Contact</p></button></a>
-        <a href="https://keshuook.github.io/game"><button tabindex="-1"><i class="fa fa-gamepad"></i><br><p style="font-size: 10px;">Game</p></button></a></div>
-        <div id="sidebar-left">
-        <div id="header">
-        <h1>Blog Maker</h1>
-        </div>
-    </div>
-    <div id="sidebar-right">
+    <div id="content">
     <div id="middle">
-    <label>Title of Blog : </label><input class="ipt"><br>
-    <label>Rext of Blog(&nl for new line) : </label><textarea class="ipt"></textarea><br>
-    <label>Image of Blog : </label><input class="ipt" placeholder="Give a link"><br>
-    <label>Allow Dark Theme </label><input class="ipt" type="checkbox"><br>
-    <label>Footer of Blog : </label><input class="ipt"><br>
-    <button onclick="done();" class="blue">Done</button>
+    <label>Title of Blog: </label><input class="ipt"><br>
+    <label>Text of Blog (HTML): </label><textarea class="ipt"></textarea><br>
+    <label>Image of Blog: </label><input class="ipt" placeholder="Give a link"><br>
+    <div class="checkbox-container">
+        <label for="darkTheme">Allow Dark Theme: </label>
+        <input class="ipt" id="darkTheme" type="checkbox">
+    </div><br>
+    <label>Footer of Blog: </label><input class="ipt"><br>
+    <button onclick="done();">Done</button>
     </div>
     </div>
     <script>
@@ -34,7 +184,7 @@
     var end = "https://keshuook.github.io/software/blog#";
     end += ipt[0].value;
     end += "@#//";
-    var x = ipt[1].value.replace(/&nl/g, "&lt;br&gt;");
+    var x = ipt[1].value.replace(/\n/g, "<br>");
     end += x;
     end += "@#//";
     end += ipt[2].value;

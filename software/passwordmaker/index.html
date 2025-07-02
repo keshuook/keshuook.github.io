@@ -1,0 +1,36 @@
+<HTMLDOCTYPE!>
+<html>
+<head>
+<title>Password Maker</title>
+<link rel="icon" type="image/x-icon" href="keshuook.github.io/favicon.ico">
+<link rel="stylesheet" type="text/css" href="../keshuookstyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="header">
+<h1>Password Maker</h1>
+</div>
+<div id="content">
+<div id="middle">
+<p>spelling mistakes are on purpose these paswords are not that strong</p>
+<button type="button" class="blue" onclick="document.getElementById('show').style.display='block'">two step genrate</button>
+<a id="show" style="display:none" href="">are you sure</a>
+<br>
+<div id="out" class="green">
+</div>
+</div>
+<script>
+var pass = new Array("p@ssword","1ho0die","z3dmaker","#ellopeople","schoold@ys",
+"p!@noes are awesome","3lectronics","r@ndom4","c@psl0ck","f!r3trucks",
+"l@ptops&re&copy00l","&copyo0lpeople","#otdog","z3ebr@crowsing","password",
+"$o0pt#ickens","longro@d","@llisgo0d","number-","ko0lEr$"
+);
+var x;
+x = Math.floor(Math.random() * 20);
+var y;
+y = Math.floor(Math.random() * 9998 + 1);
+document.getElementById('out').innerHTML += pass[x]+y+"<br>";
+
+</script>
+</body>
+</html>

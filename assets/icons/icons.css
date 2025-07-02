@@ -1,0 +1,52 @@
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fill {
+    100% {
+        fill: currentColor;
+    }
+    60% {
+        fill: transparent;
+    }
+    0% {
+        fill: transparent;
+    }
+}
+path {
+    stroke-width: 1;
+    stroke: currentColor;
+    animation: drawPath 600ms ease-out forwards, fill 1s ease-in-out;
+    animation-iteration-count: 1;
+}
+#github {
+    color: #24292e;
+    stroke-dasharray: 570;
+    stroke-dashoffset: 570;
+}
+#youtube1 {
+    color: #ff0000;
+    stroke-width: 10;
+    stroke-dasharray: 5398;
+    stroke-dashoffset: 5398;
+}
+#youtube2 {
+    color: #fff;
+    stroke-width: 10;
+    animation-delay: 100ms;
+    stroke-dasharray: 1582;
+    stroke-dashoffset: 1582;
+}
+#linkedin {
+    color: #0077B7;
+    stroke-width: 2;
+    stroke-dashoffset: 3271;
+    stroke-dasharray: 3271;
+    animation: drawPath 2s ease-out forwards, fill 1s ease-in-out;
+}
+#instagram {
+    stroke-dashoffset: 433;
+    stroke-dasharray: 433;
+    animation: drawPath 2s ease-out forwards, fill 1s ease-in-out;
+}

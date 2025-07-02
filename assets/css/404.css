@@ -1,0 +1,74 @@
+@import url('./global.css');
+@import url('./page.css');
+
+@keyframes glitch {
+    0% {transform: translateX(0px);}
+    25% {transform: translateX(-1px);}
+    50% {transform: translateX(0px);}
+    75% {transform: translateX(1px);}
+    100% {transform: translateX(0);}
+}
+.text {
+    padding: 0;
+    margin: 0;
+}
+.text-box-container {
+    position: absolute;
+    height: 136px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.text-container {
+    width: 100%;
+    overflow: hidden;
+}
+.text {
+    user-select: none;
+}
+@media screen and (min-width: 524px) {
+    #t1 {
+        clip-path: xywh(0 85px 100% 20px);
+        animation: glitch 375ms ease 25ms infinite;
+    }
+    #t2 {
+        clip-path: xywh(0 60px 100% 25px);
+        animation: glitch 425ms ease 150ms infinite;
+    }
+    #t3 {
+        clip-path: xywh(0 40px 100% 20px);
+        animation: glitch 350ms ease 100ms infinite;
+    }
+    #t4 {
+        clip-path: xywh(0 0 100% 40px);
+        overflow: hidden;
+        animation: glitch 400ms ease 0s infinite;
+    }
+    .text {
+        font-size: 100px;
+        white-space: nowrap;
+    }
+}
+@media screen and (max-width: 524px) {
+    #t1 {
+        clip-path: xywh(0 60px 100% 20px);
+        animation: glitch 375ms ease 25ms infinite;
+    }
+    #t2 {
+        clip-path: xywh(0 50px 100% 10px);
+        animation: glitch 425ms ease 150ms infinite;
+    }
+    #t3 {
+        clip-path: xywh(0 30px 100% 20px);
+        animation: glitch 350ms ease 100ms infinite;
+    }
+    #t4 {
+        clip-path: xywh(0 0 100% 30px);
+        overflow: hidden;
+        animation: glitch 400ms ease 0s infinite;
+    }
+    .text {
+        font-size: 70px;
+        white-space: nowrap;
+    }
+}

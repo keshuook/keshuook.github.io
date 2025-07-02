@@ -1,0 +1,36 @@
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+path {
+    stroke-dasharray: 340;
+    stroke-dashoffset: 340;
+    animation: drawPath 2s ease-out forwards;
+    animation-iteration-count: 1;
+}
+#hair {
+    stroke-dasharray: 1755;
+    stroke-dashoffset: 1755;
+    animation-duration: 900ms;
+}
+#outline {
+    stroke-dasharray: 1184;
+    stroke-dashoffset: 1184;
+    animation-duration: 900ms;
+}
+#face-outline {
+    stroke-dasharray: 247;
+    stroke-dashoffset: 247;
+    animation-duration: 1s;
+}
+#tie-top {
+    stroke-dasharray: 628;
+    stroke-dashoffset: 628;
+    animation-duration: 900ms;
+}
+#tie {
+    stroke-dasharray: 842;
+    stroke-dashoffset: 842;
+    animation-duration: 900ms;
+}

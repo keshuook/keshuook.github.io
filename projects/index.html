@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="../assets/css/projects.css">
+    
+    <title>Projects</title>
+    
+    <script src="../assets/scripts/favicon.js"></script>
+</head>
+<body>
+    <div id="nav" class="nav-top">
+        <div id="branding">
+            <img src="../favicon.ico" height="40" style="background-color: #ffffff;border-radius: 100%;" />
+            <p>My Projects</p>
+        </div>
+        <div id="links">
+            <div id="ham-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="#374151" width="48" height="48" viewBox="0 0 48 48">
+                    <rect x="8" y="10" width="32" height="6" rx="3"/>
+                    <rect x="8" y="20" width="32" height="4" rx="2"/> 
+                    <rect x="8" y="28" width="32" height="6" rx="3"/>
+                </svg>
+            </div>
+            <a href="../music/" class="title-show-turn">Music</a>
+            <a href="../blog/" class="title-show-turn">Blog</a>
+            <a href="#" class="title-show-turn">Projects</a>
+            <a href="../" class="title-show-turn">Home</a>
+        </div>
+    </div>
+    <div class="content">
+        <input autocomplete="off" id="search" placeholder="Search projects by title or tag">
+        <div id="search-tags">
+            <button class="search-tag" id="clear-all">Clear All</button>
+            <button class="search-tag">Demo Available</button>
+            <button class="search-tag">Mobile Support</button>
+            <button class="search-tag">Download Required</button>
+            <button class="search-tag">Game</button>
+        </div>
+        <div id="projects"></div>
+        <div id="old-projects">
+            <h1>The Archive</h1>
+            <a href="/software/passwordmaker/" class="archive-links">Password Maker</a><br>
+            <a href="/software/spammer/" class="archive-links">Spammer</a><br>
+            <a href="/software/websitemaker/" class="archive-links">Website Maker</a><br>
+        </div>
+    </div>
+
+    <script type="module">
+        import {ProjectCard} from '../assets/scripts/ProjectCard.js';
+
+        const Tags = Object.freeze({
+            DEMO: 'Demo Available',
+            DOWNLOAD_REQUIRED: 'Download Required',
+            MOBILE: 'Mobile Support',
+            GAME: 'Game'
+        });
+
+        const projects = [
+            {
+                'title': 'Actor Animate',
+                'bgColor': '#ffffff',
+                'bgSource': 'animate.jpg',
+                'description': 'A tool based on character animate where the user can control an "actor" with their face. (January 2023)',
+                'src': '/software/actor_animate/',
+                'tags': [Tags.DEMO, Tags.MOBILE],
+            },
+            {
+                'title': 'Colour Blindless',
+                'bgColor': '#ffffff',
+                'bgSource': 'colour-blindless.jpg',
+                'description': 'A digital filter I coded to cure my colour blindness. (March 2025)',
+                'src': '/software/color-blindless/',
+                'tags': [Tags.DEMO, Tags.MOBILE],
+            },
+            {
+                'title': 'Skribbl Clone',
+                'description': 'A clone of the popular multiplayer game, skribbl.io. (October 2024)',
+                'src': 'https://github.com/keshuook/skribbl-clone',
+                'tags': [Tags.DOWNLOAD_REQUIRED, Tags.GAME],
+                'bgSource': 'skribbl.jpg',
+                'bgColor': '#FFFFFF'
+            },
+            {
+                'title': 'Time Inverter',
+                'description': 'A game written in java in which you can reverse the direction in which you travel through time in. (October 2022)',
+                'src': 'https://github.com/keshuook/time-inverter-prototype',
+                'tags': [Tags.DOWNLOAD_REQUIRED, Tags.GAME],
+                'bgSource': 'time-inverter.jpg',
+                'bgColor': '#A5C9CA'
+            },
+            {
+                'title': 'Heliland',
+                'bgSource': 'heliland.jpg',
+                'tags': [Tags.DEMO, Tags.GAME],
+                'bgColor': '#eeeeee',
+                'description': 'A helicopter simulator. (May 2022)',
+                'src': '/game/heliland/'
+            },
+            {
+                'title': 'Synth',
+                'bgColor': '#FFFFFF',
+                'bgSource': 'synth.jpg',
+                'description': 'A synthesiser web app. (September 2022)',
+                'tags': [Tags.DEMO],
+                'src': '/software/synth/'
+            },
+            {
+                'title': 'Chat',
+                'bgColor': '#efefef',
+                'bgSource': 'chat.jpg',
+                'description': 'A web app in which you can chat with others. (April 2020)',
+                'tags': [Tags.DEMO, Tags.MOBILE],
+                'src': '/software/chat/'
+            },
+            {
+                'title': 'Blog Maker',
+                'bgSource': 'blog-maker.jpg',
+                'tags': [Tags.DEMO, Tags.MOBILE],
+                'bgColor': '#f0f2f5',
+                'description': 'A blog site maker with a simple rendering engine. (December 2019)',
+                'src': '/software/blogmaker/'
+            },
+            {
+                'title': 'sKheduler',
+                'bgSource': 'skhedule.jpg',
+                'tags': [Tags.DOWNLOAD_REQUIRED],
+                'bgColor': '#deb887',
+                'description': 'A windows app written in python to manage reminders. (May 2023)',
+                'src': 'https://github.com/keshuook/sKheduler'
+            },
+            {
+                'title': 'Paddle',
+                'bgSource': 'paddle.jpg',
+                'tags': [Tags.DEMO, Tags.GAME],
+                'bgColor': '#eeeeee',
+                'description': 'A simple game in which the user must use their mouse to catch a falling ball. (May 2021)',
+                'src': '/game/paddle/'
+            },
+            {
+                'title': 'K-Track',
+                'bgColor': '#841818',
+                'bgSource': 'k-track.jpg',
+                'description': 'K-Track is a simple todo list app.(January 2021)',
+                'tags': [Tags.DEMO, Tags.MOBILE],
+                'src': '/software/k-track/'
+            },{
+                'title': 'Watermelon Game',
+                'bgColor': '#000000',
+                'bgSource': 'watermelon-game.jpg',
+                'description': 'This is my first proper project. It was created in Scratch when I was 10. (December 2018)',
+                'tags': [Tags.DEMO, Tags.GAME],
+                'src': '/game/watermelon_game/'
+            },
+            {
+                'title': 'Volume Tracker',
+                'bgSource': 'volume-tracker.jpg',
+                'tags': [Tags.DEMO, Tags.MOBILE],
+                'bgColor': '#ffffff',
+                'description': 'A web app that tells you how loud your surroundings are. (April 2023)',
+                'src': '/software/volumetracker/'
+            },
+            {
+                'title': 'Pizzeria',
+                'bgSource': 'pizzeria.jpg',
+                'tags': [Tags.DEMO],
+                'bgColor': '#000000',
+                'description': 'A fun little virtual pizza maker. (May 2020)',
+                'src': '/software/pizzeria/'
+            },
+            {
+                'title': 'Covid Animation',
+                'bgSource': 'covid-animation.jpg',
+                'tags': [Tags.DEMO],
+                'bgColor': '#ffffff',
+                'description': 'A fun little animation I made when COVID 19 first began. (April 2020)',
+                'src': '/software/covid_animation/'
+            },
+            {
+                'title': 'Hangman',
+                'bgSource': 'hangman.jpg',
+                'tags': [Tags.DEMO, Tags.GAME],
+                'bgColor': '#c5c5c5',
+                'description': 'A unique take on hangman. (December 2021)',
+                'src': '/game/hangman/'
+            },
+        ]
+
+        const cards = [];
+        const searchElement = document.getElementById("search");
+        const clearAllElement = document.getElementById("clear-all");
+
+        projects.forEach(project => {
+            const pCard = new ProjectCard(project.title, project.bgColor, project.bgSource, project.description, project.tags, project.src);
+            cards.push(pCard);
+            pCard.appendCard();
+        });
+
+        function updateSearch() {
+            cards.forEach(card => {card.updateForRelevance(searchElement.value, enabledTags)});
+        }
+
+        let enabledTags = [];
+        const tagElements = document.getElementsByClassName("search-tag");
+        Array.from(tagElements).slice(1).forEach(tagElement => {
+            tagElement.addEventListener('click', () => {
+                tagElement.classList.toggle('selected');
+                if(tagElement.classList.contains("selected")) {
+                    enabledTags.push(tagElement.innerHTML);
+                } else {
+                    enabledTags = enabledTags.filter((value) => {return value !== tagElement.innerHTML});
+                }
+                updateSearch();
+            });
+        });
+
+        clearAllElement.addEventListener('click', () => {
+            enabledTags = [];
+            Array.from(tagElements).slice(1).forEach(tagElement => {
+                tagElement.classList.remove("selected");
+            });
+            updateSearch();
+        });
+
+        searchElement.addEventListener("input", updateSearch);
+    </script>
+    <script src="../assets/scripts/page.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+@import url("../assets/css/global.css");
+#back svg {
+    transform: scale(130%);
+}
+#back {
+    cursor: pointer;
+    fill: var(--accent1);
+    transition: 200ms filter;
+}
+#back:hover {
+    filter: brightness(80%);
+}
+#back-container {
+    max-width: 848px;
+    width: 95vw;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+#blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 16px;
+}
+#post {
+    border-radius: 10px;
+    background-color: var(--white);
+    max-width: 848px;
+    width: 95vw;
+    box-shadow: 0 4px 12px -8px #9fa3b0;
+}
+#post .banner {
+    width: 100%;
+    height: 480px;
+}
+.banner {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+#content {
+    padding: 16px;
+}
+#top {
+    padding: 8px;
+    text-align: center;
+    margin-bottom: 12px;
+}
+#top h1 {
+    font-size: 40px;
+    margin: 20px 0 14px 0;
+}
+#top span {
+    color: var(--text);
+}
+#content {
+    color: var(--text);
+}
+#content a {
+    text-decoration: underline;
+    color: var(--text);
+    filter: brightness(60%);
+    transition: 200ms filter;
+}
+#content a:hover {
+    filter: brightness(120%);
+}

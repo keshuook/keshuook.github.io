@@ -1,0 +1,82 @@
+@import url("./global.css");
+@import url("./page.css");
+#bar {
+	width: 100%;
+	height: 10px;
+    appearance: none;
+    overflow: hidden;
+    background-color: var(--primary);
+}
+#bar::-webkit-slider-runnable-track, #volume-range::-webkit-slider-runnable-track {
+    appearance: none;
+    background-color: var(--primary);
+}
+#bar::-webkit-slider-thumb, #volume-range::-webkit-slider-thumb {
+    width: 10px;
+    height: 10px;
+    -webkit-appearance: none;
+    background-color: var(--white);
+    border: 2px solid var(--text);
+    box-shadow: -100vw 0 0 100vw var(--accent1);
+}
+#volume-range {
+	float: right;
+	margin-top: 15px;
+    overflow: hidden;
+    appearance: none;
+}
+.box {
+    background-color: var(--white);
+    box-shadow: 0 2px 8px 0 #37415130;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 8px 0;
+}
+.box p, .box h1 {
+    padding: 0;
+    margin: 0;
+}
+#playbtn, #volumebtn {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+    border: none;
+    background-color: var(--primary);
+    cursor: pointer;
+}
+#volumebtn {
+	float: right;
+	margin-left: 20px;
+}
+#song-list {
+    margin-top: 10px;
+    border: 0.5px solid var(--text);
+    border-radius: 6px;
+}
+#song-list button {
+    font: var(--font);
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    background-color: transparent;
+    font-size: 14px;
+    padding: 12px;
+    cursor: pointer;
+    transition: 200ms background-color;
+}
+#song-list button:hover {
+    background-color: var(--background);
+}
+#song-list button.active {
+    background-color: var(--primary);
+}
+#about-page {
+    background-color: var(--primary);
+    font-size: 20px;
+}
+@media screen and (min-width: 768px) {
+    .content {
+        padding: 10px 140px;
+    }
+}

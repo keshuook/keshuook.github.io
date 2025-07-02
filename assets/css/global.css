@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url("../fonts/NunitoSans-VariableFont.ttf");
+}
+@font-face {
+    font-family: Quicksand;
+    src: url('../fonts/Quicksand-VariableFont.ttf');
+}
+:root {
+    /* Colour palette */
+    --font: 'Nunito Sans';
+    --font2: Quicksand;
+    --primary: #fde047;
+    --background: #EFF6FF;
+    --text: #374151;
+    --accent1: #CF5C36  ;
+    --white: #FFFFFF;
+}
+body {
+    font-family: var(--font);
+    padding: 0;
+    margin: 0;
+    background-color: var(--background);
+}

@@ -2,8 +2,8 @@ const progress = document.getElementById("bar");
 const volRange = document.getElementById("volume-range");
 const sources = document.getElementsByTagName("audio");
 const playbutton = document.getElementById("playbtn");
-const volumeBtn = document.getElementById("volumebtn"),states = ["fa-volume-mute", "fa-volume-off", "fa-volume-low", "fa-volume-high"],nStates = [2, 30, 75, 100];
-window.state = "fa-volume-high";
+const volumeImg = document.getElementById("volume-img"),states = ["volume-mute.svg", "volume-low.svg", "volume-medium.svg", "volume-high.svg"],nStates = [5, 35, 70, 100];
+window.state = "volume-medium.svg";
 const playPause = document.getElementById("play-pause");
 var songNo = 0,selec = false;
 
@@ -17,12 +17,10 @@ playbutton.addEventListener("click", () => {
 
 Array.from(sources).forEach(source => {
 	source.addEventListener("play", () => {
-		playPause.classList.add("pause");
-		playPause.classList.remove("play");
+		playPause.src = "../assets/icons/pause.svg";
 	});
 	source.addEventListener("pause", () => {
-		playPause.classList.add("play");
-		playPause.classList.remove("pause");
+		playPause.src = "../assets/icons/play.svg";
 	});
 })
 
@@ -37,21 +35,17 @@ volRange.addEventListener("change", () => {
 	} else {
 		stateNo = 3;
 	}
-	volumeBtn.getElementsByTagName("i")[0].classList.remove(window.state);
 	window.state = states[stateNo];
-	volumeBtn.getElementsByTagName("i")[0].classList.add(window.state);
+	volumeImg.src = `../assets/icons/${window.state}`;
 	sources[songNo].volume = volRange.value/100;
 });
-volumeBtn.addEventListener("click", () => {
+volumeImg.addEventListener("click", () => {
 	for(var i = 0;i < states.length;i++) {
 		if(states[i] == window.state) {
-			if(i == 3) {
-				i = -1;
-			}
-			volumeBtn.getElementsByTagName("i")[0].classList.remove(window.state);
-			window.state = states[i+1];
-			volumeBtn.getElementsByTagName("i")[0].classList.add(window.state);
-			volRange.value = nStates[i+1];
+			const stateNo = (i+1)%4;
+			window.state = states[stateNo];
+			volRange.value = stateNo == 0 ? 0 : nStates[stateNo];
+			volumeImg.src = `../assets/icons/${window.state}`;
 			sources[songNo].volume = volRange.value/100;
 			break;
 		}
@@ -100,12 +94,13 @@ function music() {
 		
 		cc.clearRect(0, 0, ar.x, ar.y);
 
-		cc.fillStyle = "#fff";
-		cc.strokeStyle = "#fefefe";
+		cc.fillStyle = "#374151";
+		cc.strokeStyle = "#374151";
+		cc.lineWidth = 4;
 		for(var i = 0;i < dataArr.length;i++){
 			cc.beginPath();
-			cc.moveTo(i*ar.width, ar.y);
-			cc.lineTo(i*ar.width, ar.y-dataArr[i]/2);
+			cc.moveTo(2 + i*ar.width, ar.y);
+			cc.lineTo(2 + i*ar.width, ar.y-dataArr[i]/2);
 			cc.stroke();
 		}
 		requestAnimationFrame(frame);
@@ -113,6 +108,10 @@ function music() {
 	frame();
 };
 function setSong(no) {
+	Array.from(document.getElementsByClassName("active")).forEach(element => {
+		element.classList.remove("active");
+	});
+	document.getElementById("song-list").getElementsByTagName("button")[no].classList.add("active");
 	sources[songNo].pause();
 	document.getElementById("song-tit").innerHTML = sources[no].getAttribute("data-name");
 	sources[no].volume = sources[songNo].volume;
