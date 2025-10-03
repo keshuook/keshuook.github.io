@@ -1,4 +1,5 @@
 class BlogCard {
+    blogCard;
     constructor(banner, title, content, url) {
         const blogCard = document.createElement("div");
         blogCard.classList.add("blog-card");
@@ -13,9 +14,12 @@ class BlogCard {
         viewArticle.classList.add("stylised-a");
         viewArticle.innerHTML = "Read Full Article";
         viewArticle.href = url;
-        blogCard.appendChild(viewArticle); 
 
-        document.getElementById("content").appendChild(blogCard);
+        this.blogCard = blogCard; 
+        blogCard.appendChild(viewArticle);
+    }
+    render() {
+        document.getElementById("content").appendChild(this.blogCard);
     }
     static async createObjectFromURL(url) {
         const req = await fetch(url);

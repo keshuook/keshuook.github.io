@@ -68,3 +68,31 @@
 #content a:hover {
     filter: brightness(120%);
 }
+.code {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+}
+#content a.code-copy {
+    float: right;
+    color: #fff;
+    cursor: pointer;
+    filter: brightness(85%);
+    text-decoration: none;
+}
+#content a.code-copy:hover {
+    filter: none;
+}
+.code-head {
+    background-color: var(--accent1);
+    padding: 12px;
+}
+.code-area {
+    display: block;
+    /* width: 100%; */
+    resize: none;
+    field-sizing: content;
+    margin: 0 0 8px 0;
+    background-color: var(--background);
+    padding: 12px;
+}

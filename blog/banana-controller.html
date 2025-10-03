@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="post.css">
+    <title>Blog</title>
+</head>
+<body>
+    <div id="back-container">
+        <a href="./" id="back">
+            <svg width="85" height="24">
+                <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                <text x="22" y="15" font-weight="bold" font-size="15">All Posts</text>
+            </svg>
+        </a>
+    </div>
+    <div id="blog-container">
+        <div id="post">
+            <iframe class="banner" src="https://www.youtube.com/embed/omZANmdqfIc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div id="top">
+                <h1 id="blog-title">Playing the Dino Game with Bananas</h1>
+                <span>Published on September 30, 2025 by <b>Kailash Prasad</b></span>
+            </div>
+            <div id="content">                
+                <p>Here's everything you need to know to play the Chrome Dino game with Bananas.</p>
+
+                <ol>
+                    <li>Bananas</li>
+                    <li>Alligator clips</li>
+                    <li>Arduino Uno R3</li>
+                </ol>
+
+                <p>First, you need to connect one banana to pin A0 of the Arduino using an alligator clip. Similarly, connect another banana to pin A1.</p>
+                <p>Next, open the <a href="https://www.arduino.cc/en/software/">Arduino IDE</a>, navigate to the libraries section and install the <a href="https://docs.arduino.cc/libraries/adctouch/">ADCTouch library by martin2250</a>. (This library helps detect changes in capacitance of any object connected to an ADC pin of an Arduino).</p>
+
+                <p>Now, upload the following code to the microcontroller. You can change the values of the constants T_JUMP and T_DUCK to change the sensitivity of the controller. Lower values give a higher sensitivity.</p>
+
+                <div class="code">
+                    <div class="code-head">
+                        <span>DinoKeys.ino</span>
+                        <a class="code-copy" onclick="navigator.clipboard.writeText(document.getElementsByClassName('code-area')[0].value);">Copy</a>
+                    </div>
+                    <textarea disabled class="code-area">#include <ADCTouch.h>
+
+// Control the sensitivity here
+const int T_JUMP = 30;
+const int T_DUCK = 30;
+
+int ref_jump, ref_duck;
+bool ducking;
+                        
+void setup() {
+    Serial.begin(115200);
+    ref_jump = ADCTouch.read(A0, 500);
+    ref_duck = ADCTouch.read(A1, 500);
+}
+
+void loop() {
+    bool jump = (ADCTouch.read(A0) - ref_jump) > T_JUMP;
+    bool duck = (ADCTouch.read(A1) - ref_duck) > T_DUCK;
+    if(ducking && !duck) {
+        ducking = false;
+        Serial.print('U'); // Unduck
+    } else if(!ducking && duck) {
+        ducking = true;
+        Serial.print('D'); // Duck
+    }
+    if(jump) {
+        Serial.print('J'); // Jump
+    }
+    delay(2); // So that the loop doesn't keep spamming commands
+}</textarea>
+                </div>
+                <p>Unfortunately, the Arduino Uno R3 board can't be connected to the computer as a keyboard, so I wrote some code to translate the data that the Arduino sends into key presses. I used Python with the PyAutoGUI library for this. To use this program, ensure you have the required libraries installed. To install the libraries, create a file called requirements.txt with the following text.</p>
+                <div class="code">
+                    <div class="code-head">
+                        <span>requirements.txt</span>
+                        <a class="code-copy" onclick="navigator.clipboard.writeText(document.getElementsByClassName('code-area')[1].value);">Copy</a>
+                    </div>
+                    <textarea disabled class="code-area">PyAutoGUI==0.9.53
+pyserial==3.5
+inquirerpy==0.3.4</textarea>
+                </div>
+
+                <p>Next, open the terminal in the same directory as the requirements.txt file and run the following command.</p>
+
+                <div class="code">
+                    <div class="code-head">
+                        <a class="code-copy" onclick="navigator.clipboard.writeText(document.getElementsByClassName('code-area')[2].value);">Copy</a>
+                    </div>
+                    <textarea disabled class="code-area">pip install -r requirements.txt</textarea>
+                </div>
+
+                <p>Now, you can run the Python script. Based on the banana that is pressed, the Arduino sends the corresponding data to the computer. The script decodes this data and translates it into key presses.</p>
+
+                <div class="code">
+                    <div class="code-head">
+                        <span>driver.py</span>
+                        <a class="code-copy" onclick="navigator.clipboard.writeText(document.getElementsByClassName('code-area')[3].value);">Copy</a>
+                    </div>
+                    <textarea disabled class="code-area">import pyautogui
+import serial
+import serial.tools.list_ports as port_list
+from InquirerPy import inquirer
+
+# Code to select the right serial device.
+ports = list(port_list.comports())
+
+port = inquirer.select(
+    message = "Choose the Device",
+    choices = ports
+).execute()
+
+print(port)
+
+ser = serial.Serial(port=port.name, baudrate=115200)
+
+# Code for simulating the key presses
+while True:
+    key = ser.read()
+    if key == b'U':
+        pyautogui.keyUp('down')
+    elif key == b'D':
+        pyautogui.keyDown('down')
+    elif key == b'J':
+        pyautogui.press('up')</textarea>
+                </div>
+                <p>Now you can go bananas playing the Chrome Dino game!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

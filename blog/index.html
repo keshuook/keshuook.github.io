@@ -34,11 +34,9 @@
     <div id="content"></div>
     <script type="module">
         import {BlogCard} from '../assets/scripts/BlogCard.js';
-        const pages = ["course-creator", "colourblindness-cure"];
+        const pages = ["banana-controller", "course-creator", "colourblindness-cure"];
 
-        pages.forEach(url => {
-            BlogCard.createObjectFromURL(url);
-        });
+        (await Promise.all(pages.map(url => BlogCard.createObjectFromURL(url)))).forEach(card => {card.render()}); // Render all cards in order asynchronously
     </script>
     <script src="../assets/scripts/page.js"></script>
 </body>
