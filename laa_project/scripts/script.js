@@ -105,5 +105,5 @@ if (lastClick) {
     if (isTouchDevice()) {
         alert("Our project is best experienced on a laptop. Please make sure you're using a laptop to view our project. Thank you!");
     }
-    alert("Take your time to examine everythong. To interact with one of the four people (later on), simply click on them. Press continue after you speak to them. Reload if the screen is black. You can reset the webpage at the end. Please read the credits for extra information!");
+    alert("Take your time to examine everythong. To interact with one of the four people (later on), simply click on them. Press continue after you speak to them. Reload if the screen is black. If you have connectivity issues, wait a few seconds the first time for everything to load. You can reset the project at the end. Please read the credits for extra information!");
 }
