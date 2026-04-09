@@ -13,7 +13,7 @@ function initPersonData(id) {
 
         const d = document.createElement("div");
         d.classList.add("back");
-        d.innerHTML = "Click to Continue!";
+        d.innerHTML = "<a id='next' href='./'>Continue</a>";
         document.body.appendChild(d);
         d.addEventListener("click", () => {
             window.location.href = "./"

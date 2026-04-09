@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crime Scene</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/storage.js"></script>
+</head>
+<body style="cursor: inherit;">
+    <br>
+    <img src="assets/CrimeScene2.jpg" id="crime-scene">
+    <a href="./reveal2.html" id="next">Continue</a>
+    <script>
+        let crimeScene = document.getElementById("crime-scene");
+
+        crimeScene.width = window.innerWidth;
+
+        window.addEventListener("resize", () => {
+            crimeScene.width = window.innerWidth;
+        });
+    </script>
+</body>
+</html>

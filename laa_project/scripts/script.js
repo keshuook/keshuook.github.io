@@ -2,12 +2,9 @@ let mouseX = 0;
 let mouseY = 0;
 let flashlight = document.getElementById('flashlight');
 let next = document.getElementById('next');
-let reset = document.getElementById('reset');
 let crimeScene = document.getElementById("crime-scene");
 let lastClick = localStorage.getItem("lastClick");
 let spotNo = 0;
-
-reset.style.display = "none";
 
 spotDict = {
     "0": {
@@ -31,9 +28,9 @@ spotDict = {
         s: 40
     },
     "4": {
-        x: 50,
-        y: 58,
-        s: 50
+        x: 72,
+        y: 67,
+        s: 100
     }
 }
 
@@ -71,10 +68,9 @@ document.addEventListener('mousemove', getMousePosition);
 document.addEventListener('touchmove', getMousePosition);
 
 if (done) {
-    flashlight.remove();
-    crimeScene.src = "assets/CrimeScene2.jpg";
-    document.body.style.cursor = "initial";
-    reset.style.display = "";
+    next.innerHTML = "Reveal";
+    next.href = "./reveal.html"
+    next.style.backgroundColor = "blue"
 }
 
 crimeScene.width = window.innerWidth;
@@ -109,4 +105,5 @@ if (lastClick) {
     if (isTouchDevice()) {
         alert("Our project is best experienced on a laptop. Please make sure you're using a laptop to view our project. Thank you!");
     }
+    alert("Take your time to examine everythong. To interact with one of the four people (later on), simply click on them. Press continue after you speak to them. Reload if the screen is black. You can reset the webpage at the end. Please read the credits for extra information!");
 }

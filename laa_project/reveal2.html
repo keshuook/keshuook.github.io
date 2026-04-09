@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crime Scene</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/storage.js"></script>
+</head>
+<body style="cursor: inherit;">
+    <img src="assets/CrimeScene3.jpg" id="crime-scene">
+    <a href="javascript:if(confirm('Are you sure you want to reset this project?')) {localStorage.clear();window.location.href = './'}" id="reset">Reset</a>
+    <a href="./credits.html" id="credits">Credits</a>
+    <br>
+    <script>
+        let crimeScene = document.getElementById("crime-scene");
+
+        crimeScene.width = window.innerWidth;
+
+        window.addEventListener("resize", () => {
+            crimeScene.width = window.innerWidth;
+        });
+    </script>
+</body>
+</html>

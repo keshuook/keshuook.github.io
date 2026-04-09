@@ -9,10 +9,10 @@ body {
     top: 0;
     left: 0;
     position: absolute;
-    background-image: url("assets/outside.avif");
+    background-image: url("assets/outside.jpeg");
     background-size: contain;
     background-position: center;
-    background-color: #E2C696;
+    background-color: #FFF;
     background-repeat: no-repeat;
     z-index: -1;
 }
@@ -39,20 +39,31 @@ body {
     left: 0;
     width: 100vw;
     height: 30vh;
-    background-color: #adadadc0;
+    background-color: #fff;
 }
 .back {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #0000001e;
-    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
     width: 100vw;
     height: 100vh;
-    text-align: center;
-    font-weight: bold;
-    font-size: 60px;
-    display: block;
-    align-content: center;
+}
+a {
+    text-decoration: none;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
     cursor: pointer;
+    transition: filter 0.3s ease;
+}
+a:hover {
+    filter: sepia(80%);
+}
+#next {
+    right: 20px;
 }

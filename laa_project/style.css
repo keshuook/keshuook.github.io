@@ -58,6 +58,11 @@ body {
 #reset {
     left: 20px;
 }
+#credits {
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+}
 
 a {
     text-decoration: none;
