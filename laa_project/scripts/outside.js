@@ -16,7 +16,7 @@ function initPersonData(id) {
         d.innerHTML = "Click to Continue!";
         document.body.appendChild(d);
         d.addEventListener("click", () => {
-            window.location.href = ".."
+            window.location.href = "./"
         })
     });
     if(localStorage.getItem(`person${id}`)) {
