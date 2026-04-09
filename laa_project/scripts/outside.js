@@ -8,7 +8,7 @@ function initPersonData(id) {
         localStorage.setItem(`person${id}`, true);
         localStorage.setItem(`lastClick`, id);
         p.style.filter = "sepia(100%)";
-        speech.innerHTML = `<img src="assets/speech${id}.png">`
+        speech.innerHTML = `<img src="assets/Speech${id}.png">`
         speech.style.display = "";
 
         const d = document.createElement("div");
