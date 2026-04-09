@@ -1,0 +1,58 @@
+body {
+    top: 0;
+    height: 0;
+    overflow: hidden;
+}
+#background {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-image: url("assets/outside.avif");
+    background-size: contain;
+    background-position: center;
+    background-color: #E2C696;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+#people {
+    margin-top: 100vh;
+    transform: translateY(-100%);
+    max-height: 400px;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.person {
+    display: flex;
+    cursor: pointer;
+}
+#speech {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 30vh;
+    background-color: #adadadc0;
+}
+.back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #0000001e;
+    text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+    display: block;
+    align-content: center;
+    cursor: pointer;
+}
